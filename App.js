@@ -1,14 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Home from './screens/Home'
+import Profile from './screens/Profile'
+import Search from './screens/Search'
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { 
+  StyleSheet, 
+  Text, 
+  View,
+  SafeAreaView,
+} from 'react-native';
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
+  return(
+    <NavigationContainer>
+    <Tab.Navigator
+    tabBarOptions={{
+      activeTintColor: 'tomato',
+      inactiveTintColor : 'gray'
+    }}
+    >
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -19,3 +43,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App
