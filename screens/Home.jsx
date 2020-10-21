@@ -3,8 +3,8 @@ import { View, Text } from 'react-native'
 
 export default function Home() {
     return (
-        <View>
-            <Text>Home page</Text>
+        <View style={{flex : 1, justifyContent : 'center', alignItems : 'center'}}>
+            <Text>Liste des articles enregistrés</Text>
         </View>
     )
 }
