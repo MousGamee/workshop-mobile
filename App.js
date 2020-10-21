@@ -22,14 +22,33 @@ const App = () => {
   return(
     <NavigationContainer>
     <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Recherche') {
+          iconName = focused
+            ? 'ios-search'
+            : 'ios-search';
+        } else if (route.name === 'Favoris') {
+          iconName = focused ? 'ios-bookmark' : 'ios-bookmark';
+        } else if (route.name === 'Profil'){
+          iconName = focused ? 'ios-person' : 'ios-person';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+    })}
+
     tabBarOptions={{
-      activeTintColor: 'tomato',
+      activeTintColor: '#1D90E8',
       inactiveTintColor : 'gray'
     }}
     >
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Recherche" component={Search} />
+      <Tab.Screen name="Favoris" component={Home} />
+      <Tab.Screen name="Profil" component={Profile} />
     </Tab.Navigator>
     </NavigationContainer>
   )
