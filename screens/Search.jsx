@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { 
     View, 
     Text, 
@@ -10,44 +10,47 @@ import {
     Dimensions,  
     Image
 } from 'react-native'
-import { Input } from 'react-native-elements';
-import { Value } from 'react-native-reanimated';
+
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import Category from '../components/Category'
+import * as Animatable from 'react-native-animatable'
 
 export default function Search() {
+
     const {height, width} = Dimensions.get('window')
+    const [searchBarFocused, setSearchBarFocused] = useState(false)
     return (
         <SafeAreaView style={{flex : 1}}>
-            <View style={{}}>
-                <View style={{height : 110, backgroundColor : 'white', borderBottomWidth:1, borderBottomColor : '#DDDDDD'}}>
-                    <View style={{
-                        flexDirection : 'row', 
-                        padding : 10, 
-                        marginTop : 10,
-                        backgroundColor : 'white', 
-                        marginHorizontal : 20, 
+            <StatusBar hidden={true}/>
+            <View>
+                <View style={{height : 80, backgroundColor : 'green',justifyContent : 'center',paddingHorizontal : 5, }}>
+                    <Animatable.View 
+                     animation='slideInRight'
+                    style={{
+                        flexDirection : 'row',                        
+                        backgroundColor : 'white',  
                         shadowOffset : {width : 0, height : 0}, 
                         shadowColor : 'black',
                         elevation : 1,
+                        padding : 5,
+                        height : 50,
+                        borderRadius : 10,
+                        alignItems : "center",
+                        width : '100%',     
                         shadowColor : 0.2}}>
-                        <Input
-                        underlineColorAndroid="transparent"
-                        style={{background : 'none'}}
+                            <Icon name='ios-search' size={24} />
+                        <TextInput
                             placeholder="Rechercher"
-                            placeholderTextColor="grey"
-                           
-                            leftIcon={
-                                <Icon name="ios-search" size={20} />
-                            }
-                            style={{flex : 1, fontWeight : '700', backgroundColor : 'white'}} />
-                    </View>
+                            placeholderTextColor="grey"                            
+                            style={{ backgroundColor : 'white', fontSize : 20, marginLeft : 15}} />
+                    </Animatable.View>
                 </View>
             </View>
-
-            <ScrollView style={{flex : 0}}
+            
+            <ScrollView style={{flex : 1}}
             scrollEventThrottle={16}
+            style={{backgroundColor : 'black'}}
             >
                 <View style={{flex : 1, backgroundColor : 'white', paddingTop : 20}}>
                     {/** */}
