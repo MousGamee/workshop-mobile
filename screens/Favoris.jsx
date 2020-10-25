@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const Search = () => {
+const Favoris = () => {
     return (
         <View style={{flex : 1, justifyContent : "center", alignItems : 'center'}}>
-            <Text>Search screen</Text>
+            <Text>Favoris</Text>
         </View>
     )
 }
 
-export default Search
+export default Favoris

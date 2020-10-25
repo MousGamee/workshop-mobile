@@ -2,17 +2,15 @@ import React from 'react'
 import { 
     View, 
     Text,
-    Button,
     SafeAreaView, 
     StatusBar, 
     ImageBackground,
     Image,
     TextInput,
-    Button as NativeBtn
 } from 'react-native'
 
 
-const Login = ({  }) => {
+const Login = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex : 1, alignItems : "center"}}>
             <StatusBar barStyle='light-content' />
@@ -33,12 +31,13 @@ const Login = ({  }) => {
                             />
                     </View>
                     <View style={{marginTop : 40, flexDirection : "row", justifyContent : 'space-around'}}>
-                        <NativeBtn title="facebook" />
-                        <NativeBtn title="Twitter" />
+                       
                     </View>
 
                     <View style={{width : '100%', marginTop : 20, paddingHorizontal : 20}}>
-                        <TextInput style={{
+                        <TextInput 
+                       
+                        style={{
                             height : 40,
                             backgroundColor : 'rgba(255,255,255,.5)',
                             fontSize : 15,
@@ -65,15 +64,14 @@ const Login = ({  }) => {
                             marginTop : 10,
                             height : 40,
                         }}>
-                            <NativeBtn 
-                            title="Connexion" 
-                            onPress={() => alert('Connexion')}
-                          />
                         </View>
                     </View>
 
                     <View style={{ flex : 1,flexDirection : 'row' ,justifyContent : 'space-around', alignItems : "center"}}>
-                        <Text> s'inscrire</Text>
+                        <Text
+                        onPress={() => navigation.push('SignIn')}
+                        style={{fontSize : 25}}> S'inscrire</Text>
+
                         <Text> Mot de passe oublié</Text>
                     </View>
 
