@@ -9,6 +9,10 @@ import ForgetPassword from './screens/ForgetPassword'
 import Login from './screens/Login'
 import SignIn from './screens/SignIn'
 import Details from './screens/Details'
+import Help from './screens/Help'
+import MyClass from './screens/MyClass'
+import MyAccount from './screens/MyAccount'
+import Notification from './screens/Notification'
 
 
 import 'react-native-gesture-handler';
@@ -33,11 +37,12 @@ import {
 
 const AuthStack = createStackNavigator()
 const HomeStack = createStackNavigator()
+const ProfileStack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
 const HomeStackPage = () => (
   <HomeStack.Navigator
-    initialRouteName="Details"
+    initialRouteName="Home"
     screenOptions={{
       headerShown : false
     }}
@@ -45,6 +50,20 @@ const HomeStackPage = () => (
     <HomeStack.Screen name="Home" component={Home} />
     <HomeStack.Screen name="Details" component={Details} />
   </HomeStack.Navigator>
+)
+
+const ProfileStackPage = () => (
+  <ProfileStack.Navigator
+  initialRouteName="Profile"
+  screenOptions={{
+    headerShown : false
+  }}>
+    <ProfileStack.Screen name="Profile" component={Profile} /> 
+    <ProfileStack.Screen name="MyAccount" component={MyAccount} /> 
+    <ProfileStack.Screen name="MyClass" component={MyClass} /> 
+    <ProfileStack.Screen name="Help" component={Help} /> 
+    <ProfileStack.Screen name="Notification" component={Notification} /> 
+  </ProfileStack.Navigator>
 )
 
 const AuthStackPage = () => (
@@ -92,7 +111,7 @@ const App = () => {
       <Tab.Screen name="Home" component={HomeStackPage} />
       <Tab.Screen name="Recherche" component={Search} />
       <Tab.Screen name="Favoris" component={Favoris} />
-      <Tab.Screen name="Profil" component={Profile} />
+      <Tab.Screen name="Profil" component={ProfileStackPage} />
     </Tab.Navigator>
         ) : (
           <AuthStackPage />

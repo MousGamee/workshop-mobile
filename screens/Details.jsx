@@ -27,7 +27,7 @@ const Details = ({navigation}) => {
                <Text style={styles.classTitle}>BLM Crew</Text>
 
                <TouchableOpacity 
-               onPress={() => navigation.push('Home')}
+               onPress={() => navigation.goBack()}
                style={{position : 'absolute', left : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
                    <Ionicons name="ios-arrow-back" size={25} color="#14AADF" />
                </TouchableOpacity>

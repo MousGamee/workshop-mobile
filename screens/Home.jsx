@@ -7,11 +7,17 @@ import {
      Image
      } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import { SlideItem, SlideItem2 } from '../components/Category'
+
+import { classItems } from '../data'
 
 
 const Home = ({navigation}) => {
 
+    const goToDetails = () => {
+        navigation.push('Details')
+    }
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             {/**Header */}
@@ -48,9 +54,19 @@ const Home = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        <SlideItem />
-                        <SlideItem />
-                        <SlideItem />
+                        {
+                            classItems.map((item,i) => (
+                                <SlideItem 
+                                    key={i}
+                                    title={item.title}
+                                    teacher={item.teacher}
+                                    studio={item.studio}
+                                    imh={item.img}
+                                    goToDetails={goToDetails}
+                                />
+                            ))
+                        }
+                        
 
                     </ScrollView>
 
@@ -69,12 +85,18 @@ const Home = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
+                       {
+                            classItems.map((item,i) => (
+                                <SlideItem2 
+                                    key={i}
+                                    title={item.title}
+                                    teacher={item.teacher}
+                                    studio={item.studio}
+                                    imh={item.img}
+                                    goToDetails={goToDetails}
+                                />
+                            ))
+                        }
                     </ScrollView>
 
                 </View>   
@@ -92,12 +114,18 @@ const Home = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
+                        {
+                            classItems.map((item,i) => (
+                                <SlideItem2 
+                                    key={i}
+                                    title={item.title}
+                                    teacher={item.teacher}
+                                    studio={item.studio}
+                                    imh={item.img}
+                                    goToDetails={goToDetails}
+                                />
+                            ))
+                        }
                     </ScrollView>
                 </View>  
 
@@ -114,12 +142,18 @@ const Home = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
+                        {
+                            classItems.map((item,i) => (
+                                <SlideItem2 
+                                    key={i}
+                                    title={item.title}
+                                    teacher={item.teacher}
+                                    studio={item.studio}
+                                    imh={item.img}
+                                    goToDetails={goToDetails}
+                                />
+                            ))
+                        }
                     </ScrollView>
                 </View>   
 
