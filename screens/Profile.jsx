@@ -1,5 +1,4 @@
-import { TabActions } from '@react-navigation/native'
-import React from 'react'
+import React, {useContext} from 'react'
 import { 
     View, 
     Text,
@@ -7,15 +6,19 @@ import {
     SafeAreaView,
     StyleSheet, 
     ImageBackground,
-    TouchableOpacity
+    TouchableOpacity,
+    Button
 } from 'react-native'
 
 import { Avatar, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { AuthContext } from '../context';
 
 const Profile = ({ navigation }) => {
+
+    const { logOut } = useContext(AuthContext)
+
     const AccountList = [
         {
             title : 'Mes Cours',
@@ -25,7 +28,7 @@ const Profile = ({ navigation }) => {
         {
             title : 'Mes Achats',
             icon : 'id-badge',
-            link : 'MyClass'
+            link : 'MyPurchase'
 
         },
         {
@@ -92,7 +95,10 @@ const Profile = ({ navigation }) => {
                         <View style={{paddingHorizontal : 10, marginTop : 15}}>
                         <Text style={{fontSize : 20 , color : '#C1C1C1', marginBottom : 10}}> Réglages </Text>
                             {
-                                Setting.map((item, i) => (
+                                Setting.map((item, i) => 
+                                
+                                (
+                                    
                                     <ListItem key={i} bottomDivider onPress={() => navigation.push(item.link)}>
                                         <Icon name={item.icon} size={15}/>
                                             <ListItem.Content>
@@ -101,13 +107,10 @@ const Profile = ({ navigation }) => {
                                     </ListItem>
                                 ))
                             }
-                            {/* <TouchableOpacity>
-                                <View style={{flexDirection : "row", backgroundColor : '14AADF', width : '100%', height : 50}}>
-                                    <Icon name="heart" />
-                                    <Text>Se deconecter</Text>
-                                </View>
-                              
-                            </TouchableOpacity> */}
+                         <Button
+                         onPress={() => logOut()}
+                            title='deconnection' />
+                             
                         </View>
                     </View>
             </View>

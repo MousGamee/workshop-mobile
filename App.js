@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { StatusBar } from 'expo-status-bar';
 //Screens
 import Home from './screens/Home'
@@ -11,9 +11,10 @@ import SignIn from './screens/SignIn'
 import Details from './screens/Details'
 import Help from './screens/Help'
 import MyClass from './screens/MyClass'
+import MyPurchase from './screens/MyPurchase'
 import MyAccount from './screens/MyAccount'
 import Notification from './screens/Notification'
-
+import { AuthContext } from './context'
 
 import 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -30,10 +31,6 @@ import {
   View,
   SafeAreaView,
 } from 'react-native';
-
-
-
-
 
 const AuthStack = createStackNavigator()
 const HomeStack = createStackNavigator()
@@ -61,13 +58,19 @@ const ProfileStackPage = () => (
     <ProfileStack.Screen name="Profile" component={Profile} /> 
     <ProfileStack.Screen name="MyAccount" component={MyAccount} /> 
     <ProfileStack.Screen name="MyClass" component={MyClass} /> 
+    <ProfileStack.Screen name="MyPurchase" component={MyPurchase} /> 
     <ProfileStack.Screen name="Help" component={Help} /> 
     <ProfileStack.Screen name="Notification" component={Notification} /> 
   </ProfileStack.Navigator>
 )
 
 const AuthStackPage = () => (
-  <AuthStack.Navigator>
+  <AuthStack.Navigator
+  initialRouteName="SignIn"
+    screenOptions={{
+      headerShown : false
+    }}
+  >
     <AuthStack.Screen name="SignIn" component={SignIn} />
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="ForgetPassword" component={ForgetPassword} />
@@ -76,8 +79,23 @@ const AuthStackPage = () => (
 
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true)
+  const authContext = useMemo(() => (
+    {
+      signIn : () => {
+      setIsLogin(true)
+    },
+    signUp : () => {
+      setIsLogin(true)
+    },
+    logOut : () => {
+      setIsLogin(false)
+    }}
+  ),[])
+
+  const [isLogin, setIsLogin] = useState(false)
+
   return(
+    <AuthContext.Provider value={authContext}>
     <NavigationContainer>
       {
         isLogin ? (
@@ -116,13 +134,9 @@ const App = () => {
         ) : (
           <AuthStackPage />
         )
-      }
- 
-
-    
+      }    
     </NavigationContainer>
-    
-
+    </AuthContext.Provider>
   )
 }
 
