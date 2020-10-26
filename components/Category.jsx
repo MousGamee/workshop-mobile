@@ -16,11 +16,9 @@ export const Category = ({}) => {
     )
 }
 
-export const SlideItem = ({img, title, teacher, studio, goToDetails}) => (
+export const SlideItem = ({img, title, teacher, studio,}) => (
     <View style={{marginRight : 20}}>
-             <TouchableOpacity
-                onPress={goToDetails}
-             >
+             
                  <View style={{
                          width : 255,
                             height : 330,
@@ -34,11 +32,11 @@ export const SlideItem = ({img, title, teacher, studio, goToDetails}) => (
                                 width : null,
                                 height : null,
                             }}
-                            source={require('../assets/image2.png')}/>
+                            source={img}/>
                                 
                           
                             </View>
-                </TouchableOpacity>
+                
                             <View style={{paddingHorizontal : 10}}>
                                 <View style={{flexDirection : "row", justifyContent : "space-between"}}>
                                     <Text style={{fontSize : 15, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>
@@ -51,10 +49,9 @@ export const SlideItem = ({img, title, teacher, studio, goToDetails}) => (
                         </View>
 )
 
-export const SlideItem2 = ({img, title, teacher, studio, goToDetails}) => (
+export const SlideItem2 = ({img, title, teacher, studio}) => (
     <View style={{marginRight : 20}}>
-        <TouchableOpacity
-        onPress={goToDetails}>
+        
         <View style={{
                          width : 140,
                             height : 180,
@@ -66,16 +63,16 @@ export const SlideItem2 = ({img, title, teacher, studio, goToDetails}) => (
                                 width : null,
                                 height : null,
                             }}
-                            source={require('../assets/image6.png')}/>
+                            source={img}/>
                             </View>
-                </TouchableOpacity>
+               
                             <View style={{paddingHorizontal : 5}}>
                                 <View style={{flexDirection : "row", justifyContent : "space-between"}}>
-                                    <Text style={{fontSize : 12, fontWeight : 'bold', color : "#14AADF"}}>Hip hop comercial</Text>
+                                    <Text style={{fontSize : 12, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>
                                    
                                 </View>
                                 <View>
-                                    <Text>By Jk dash</Text>
+                                    <Text>{teacher}</Text>
                                 </View>
                             </View>
                         </View>

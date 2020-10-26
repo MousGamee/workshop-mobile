@@ -11,20 +11,33 @@ import {
 } from 'react-native'
 
 import { SlideItem2 } from '../components/Category'
+import { classItems } from '../data'
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+const classImage = {
+    id : {
+      0 : require('../assets/image1.png'),
+      1 : require('../assets/image2.png'),
+      2 : require('../assets/image3.png'),
+      3 : require('../assets/image4.png'),
+      4 : require('../assets/image5.png'),
+      5 : require('../assets/image6.png'),
+    }
+  }
 
-const Details = ({navigation}) => {
+const Details = ({navigation, route}) => {
+    const {item} = route.params
     return (
+        
         <ScrollView>
         <View style={{backgroundColor : 'white', flex : 1}}>
            <ImageBackground
            style={styles.image}
-           source={require('../assets/test.jpg')}
+           source={classImage.id[item.id]}
            imageStyle={{borderBottomLeftRadius : 30, borderBottomRightRadius : 30}}
            >
-               <Text style={styles.tagLine}> Hip Hop moderne</Text>
-               <Text style={styles.classTitle}>BLM Crew</Text>
+               <Text style={styles.tagLine}> {item.title}</Text>
+               <Text style={styles.classTitle}>{item.teacher}</Text>
 
                <TouchableOpacity 
                onPress={() => navigation.goBack()}
@@ -43,11 +56,11 @@ const Details = ({navigation}) => {
 
            <View style={styles.detailsContainer}>
                <View>
-                   <Text style={styles.studioName}> Nom du studio</Text>
+                   <Text style={styles.studioName}>{item.studio}</Text>
                    <Text style={styles.stuioLocation}>Adresse du studio</Text>
                </View>
                <View>
-                   <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae beatae tenetur excepturi at facere enim sed neque ipsum, architecto dolor impedit dignissimos placeat voluptatem voluptas! Similique culpa cupiditate eius? Expedita.</Text>
+                   <Text>{item.description}</Text>
                </View>
            
 
@@ -63,12 +76,19 @@ const Details = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
-                        <SlideItem2 />
+                        {
+                            classItems.map((item,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {item})}>
+                                <SlideItem2 
+                                    key={i}
+                                    title={item.title}
+                                    teacher={item.teacher}
+                                    studio={item.studio}
+                                    img={classImage.id[i]}
+                                />
+                                </TouchableOpacity>
+                            ))
+                        }
                     </ScrollView>
                 </View>  
                 </View>

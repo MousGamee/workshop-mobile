@@ -4,7 +4,8 @@ import {
      Text,
      TextInput,
      ScrollView,
-     Image
+     Image,
+     TouchableOpacity
      } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -12,12 +13,19 @@ import { SlideItem, SlideItem2 } from '../components/Category'
 
 import { classItems } from '../data'
 
+const classImage = {
+    id : {
+      0 : require('../assets/image1.png'),
+      1 : require('../assets/image2.png'),
+      2 : require('../assets/image3.png'),
+      3 : require('../assets/image4.png'),
+      4 : require('../assets/image5.png'),
+      5 : require('../assets/image6.png'),
+    }
+  }
 
 const Home = ({navigation}) => {
 
-    const goToDetails = () => {
-        navigation.push('Details')
-    }
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             {/**Header */}
@@ -56,18 +64,19 @@ const Home = ({navigation}) => {
                     >
                         {
                             classItems.map((item,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {item})}>
                                 <SlideItem 
                                     key={i}
                                     title={item.title}
                                     teacher={item.teacher}
                                     studio={item.studio}
-                                    imh={item.img}
-                                    goToDetails={goToDetails}
+                                    img={classImage.id[i]}
+                        
                                 />
+                                </TouchableOpacity>
                             ))
                         }
                         
-
                     </ScrollView>
 
                 </View>
@@ -87,14 +96,15 @@ const Home = ({navigation}) => {
                     >
                        {
                             classItems.map((item,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {item})}>
                                 <SlideItem2 
                                     key={i}
                                     title={item.title}
                                     teacher={item.teacher}
                                     studio={item.studio}
-                                    imh={item.img}
-                                    goToDetails={goToDetails}
+                                    img={classImage.id[i]}
                                 />
+                                </TouchableOpacity>
                             ))
                         }
                     </ScrollView>
@@ -116,14 +126,15 @@ const Home = ({navigation}) => {
                     >
                         {
                             classItems.map((item,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {item})}>
                                 <SlideItem2 
                                     key={i}
                                     title={item.title}
                                     teacher={item.teacher}
                                     studio={item.studio}
-                                    imh={item.img}
-                                    goToDetails={goToDetails}
+                                    img={classImage.id[i]}
                                 />
+                                </TouchableOpacity>
                             ))
                         }
                     </ScrollView>
@@ -144,14 +155,15 @@ const Home = ({navigation}) => {
                     >
                         {
                             classItems.map((item,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {item})}>
                                 <SlideItem2 
                                     key={i}
                                     title={item.title}
                                     teacher={item.teacher}
                                     studio={item.studio}
-                                    imh={item.img}
-                                    goToDetails={goToDetails}
+                                    img={classImage.id[i]}
                                 />
+                              </TouchableOpacity>
                             ))
                         }
                     </ScrollView>
