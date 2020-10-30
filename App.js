@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import Home from './screens/Home'
 import Profile from './screens/Profile'
 import Search from './screens/Search'
+import SearchResult from './screens/SearchResult'
 import Favoris from './screens/Favoris'
 import ForgetPassword from './screens/ForgetPassword'
 import Login from './screens/Login'
@@ -35,6 +36,7 @@ import {
 const AuthStack = createStackNavigator()
 const HomeStack = createStackNavigator()
 const ProfileStack = createStackNavigator()
+const SearchStack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
 const HomeStackPage = () => (
@@ -75,6 +77,18 @@ const AuthStackPage = () => (
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="ForgetPassword" component={ForgetPassword} />
   </AuthStack.Navigator>
+)
+
+const SearchStackPage = () => (
+  <SearchStack.Navigator
+    initialRouteName="Search"
+    screenOptions={{
+      headerShown : false
+    }}
+  >
+     <SearchStack.Screen name="Search" component={Search} />
+     <SearchStack.Screen name="SearchResult" component={SearchResult} />
+  </SearchStack.Navigator>
 )
 
 
@@ -127,7 +141,7 @@ const App = () => {
     }}
     >
       <Tab.Screen name="Home" component={HomeStackPage} />
-      <Tab.Screen name="Recherche" component={Search} />
+      <Tab.Screen name="Recherche" component={SearchStackPage} />
       <Tab.Screen name="Favoris" component={Favoris} />
       <Tab.Screen name="Profil" component={ProfileStackPage} />
     </Tab.Navigator>

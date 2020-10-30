@@ -5,7 +5,8 @@ import {
      TextInput,
      ScrollView,
      Image,
-     TouchableOpacity
+     TouchableOpacity,
+     ImageBackground
      } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -31,21 +32,16 @@ const Home = ({navigation}) => {
             {/**Header */}
             <View style={{
                 marginTop : 10,
-                height : 100,
+                height : 80,
                 flexDirection : "row",
-                justifyContent : "center", 
+                backgroundColor : '#72CCEC',
                 alignItems : 'center'
             }}>
-                <Ionicons name="ios-search" size={20} style={{color : "#72CCEC", marginRight : 10}} />
-                <TextInput
-                style={{
-                    backgroundColor : "white",
-                    width : '75%',
-                    height : '45%',
-                    borderRadius : 20,
-                    paddingLeft : 20,
-                }}
-                placeholder="Que recherches tu ?" />
+                
+                <Image
+                style={{width : 100, height : 50, marginLeft : 20, marginTop : 15}}
+                 source={require('../assets/Workshop.png')}
+                            />
             </View>
 
             {/**Landing */}
