@@ -9,6 +9,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Card from '../components/Card';
 
 import { classItems } from '../data'
 
@@ -59,23 +60,13 @@ const Search = () => {
 
             {
                 classItems.map((item, i) => (
-                    <TouchableOpacity  key={i}>
-                    <View style={styles.searchCardContainer}>
-                    <View style={styles.imageContainer}>
-                        <Image 
-                        borderBottomLeftRadius={20}
-                        borderTopLeftRadius={20}
-                            style={styles.image}
-                            source={classImage.id[i]}
-                        />
-                    </View>
-                    <View style={styles.classInfoContainer}>
-                        <Text style={styles.classTitle}>{item.title}</Text>
-                        <Text style={styles.classTeacher}>{item.teacher}</Text>
-                        <Text style={styles.classStudio}>{item.studio}</Text>
-                    </View>
-                </View>
-                </TouchableOpacity>
+                   <Card 
+                   key={i}
+                    title={item.title}
+                    teacher={item.teacher}
+                    studio={item.studio}
+                    img={classImage.id[i]}
+                   />
                 ))
             }
            

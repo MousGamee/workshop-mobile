@@ -31,15 +31,14 @@ const Home = ({navigation}) => {
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             {/**Header */}
             <View style={{
-                marginTop : 10,
-                height : 80,
+                height : 90,
                 flexDirection : "row",
                 backgroundColor : '#72CCEC',
                 alignItems : 'center'
             }}>
                 
                 <Image
-                style={{width : 100, height : 50, marginLeft : 20, marginTop : 15}}
+                style={{width : 100, height : 50, marginLeft : 20, marginTop :20 }}
                  source={require('../assets/Workshop.png')}
                             />
             </View>
