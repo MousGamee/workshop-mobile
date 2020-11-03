@@ -26,6 +26,7 @@ export const SlideItem = ({img, title, teacher, studio,}) => (
                             
                             <Image 
                             imageStyle={{borderRadius : 65}}
+                            borderRadius={20}
                             style={{
                                 resizeMode : "cover",
                                 flex : 1,
@@ -57,6 +58,7 @@ export const SlideItem2 = ({img, title, teacher, studio}) => (
                             height : 180,
                             }}>
                             <Image 
+                             borderRadius={20}
                             style={{
                                 resizeMode : "cover",
                                 flex : 1,

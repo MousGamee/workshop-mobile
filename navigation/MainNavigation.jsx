@@ -15,9 +15,7 @@ import MyPurchase from '../screens/MyPurchase'
 import MyAccount from '../screens/MyAccount'
 import Notification from '../screens/Notification'
 
-
 //Context
-
 import { AuthContext } from '../context/AuthContext'
 import ClassContextProvider from '../context/ClassContext'
 

@@ -11,12 +11,14 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SlideItem, SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
+import { AuthContext } from '../context/AuthContext'
 
 import { classItems,  } from '../data'
 
 const Home = ({navigation}) => {
 
     const { cours, img } = useContext(ClassContext)
+    const { users } = useContext(AuthContext)
 
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
@@ -105,7 +107,7 @@ const Home = ({navigation}) => {
                         color : '#7E8081',
                         fontSize : 20,
                         marginBottom : 10,
-                    }}>Recommandé pour vous</Text>
+                    }}>Recommandé pour vous {users.name}</Text>
                     <ScrollView
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}

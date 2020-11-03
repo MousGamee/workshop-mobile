@@ -14,10 +14,11 @@ import { Avatar, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../context/AuthContext';
+import { user } from '../data';
 
 const Profile = ({ navigation }) => {
 
-    const { logOut } = useContext(AuthContext)
+    const { logOut, users } = useContext(AuthContext)
 
     const AccountList = [
         {
@@ -62,7 +63,7 @@ const Profile = ({ navigation }) => {
                 >
                 </ImageBackground>
                 <View style={{position : "absolute", top : 80, left : 10,}}>
-                    <Text style={{ color : '#FFFFFF', fontSize : 20}}>NOM Prenom</Text>
+                    <Text style={{ color : '#FFFFFF', fontSize : 20}}>{users.name} {user.lastName}</Text>
                 </View>
                 <View style={{position : 'absolute', right : 20, top : 80}}>
                         <Avatar

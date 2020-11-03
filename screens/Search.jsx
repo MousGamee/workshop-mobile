@@ -21,12 +21,12 @@ const Search = () => {
 
     const classImage = {
         id : {
-          0 : require('../assets/image1.png'),
-          1 : require('../assets/image2.png'),
-          2 : require('../assets/image3.png'),
-          3 : require('../assets/image4.png'),
-          4 : require('../assets/image5.png'),
-          5 : require('../assets/image6.png'),
+          0 : require('../assets/image1.jpg'),
+          1 : require('../assets/image2.jpg'),
+          2 : require('../assets/image3.jpg'),
+          3 : require('../assets/image4.jpg'),
+          4 : require('../assets/image5.jpg'),
+          5 : require('../assets/image6.jpg'),
         }
       }
 
