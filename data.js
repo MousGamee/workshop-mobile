@@ -58,5 +58,24 @@ export const classItems = [
       studio : 'Studio MRG',
       price: "14€",
     },
+    {
+      id : 6,
+      title: "New class",
+      teacher: "Salam",
+      img: "../assets/image6.png",
+      description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
+      studio : 'Studio MRG',
+      price: "14€",
+    }
   ];
   
+  export const classImage = {
+    id : {
+      0 : require('./assets/image1.png'),
+      1 : require('./assets/image2.png'),
+      2 : require('./assets/image3.png'),
+      3 : require('./assets/image4.png'),
+      4 : require('./assets/image5.png'),
+      5 : require('./assets/image6.png'),
+    }
+  }

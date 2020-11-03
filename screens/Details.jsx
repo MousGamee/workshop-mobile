@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { 
     StyleSheet, 
     Text, 
@@ -11,37 +11,29 @@ import {
 } from 'react-native'
 
 import { SlideItem2 } from '../components/Category'
-import { classItems } from '../data'
+
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-const classImage = {
-    id : {
-      0 : require('../assets/image1.png'),
-      1 : require('../assets/image2.png'),
-      2 : require('../assets/image3.png'),
-      3 : require('../assets/image4.png'),
-      4 : require('../assets/image5.png'),
-      5 : require('../assets/image6.png'),
-    }
-  }
+import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
-    const {item} = route.params
+    const { img, cours } = useContext(ClassContext)
+    const {cour} = route.params
     return (
         
         <ScrollView>
         <View style={{backgroundColor : 'white', flex : 1}}>
            <ImageBackground
            style={styles.image}
-           source={classImage.id[item.id]}
+           source={img.id[cour.id]}
            imageStyle={{borderBottomLeftRadius : 30, borderBottomRightRadius : 30}}
            >
-               <Text style={styles.tagLine}> {item.title}</Text>
-               <Text style={styles.classTitle}>{item.teacher}</Text>
+               <Text style={styles.tagLine}> {cour.title}</Text>
+               <Text style={styles.classTitle}>{cour.teacher}</Text>
 
                <TouchableOpacity 
                onPress={() => navigation.goBack()}
-               style={{position : 'absolute', left : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
+               style={{position : 'absolute', left : 20, top : 40,  padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
                    <Ionicons name="ios-arrow-back" size={25} color="#14AADF" />
                </TouchableOpacity>
 
@@ -56,11 +48,11 @@ const Details = ({navigation, route}) => {
 
            <View style={styles.detailsContainer}>
                <View>
-                   <Text style={styles.studioName}>{item.studio}</Text>
+                   <Text style={styles.studioName}>{cour.studio}</Text>
                    <Text style={styles.stuioLocation}>Adresse du studio</Text>
                </View>
                <View>
-                   <Text>{item.description}</Text>
+                   <Text>{cour.description}</Text>
                </View>
            
 
@@ -77,14 +69,14 @@ const Details = ({navigation, route}) => {
                     showsHorizontalScrollIndicator={false}
                     >
                         {
-                            classItems.map((item,i) => (
-                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {item})}>
+                            cours.map((cour,i) => (
+                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {cour})}>
                                 <SlideItem2 
                                     key={i}
-                                    title={item.title}
-                                    teacher={item.teacher}
-                                    studio={item.studio}
-                                    img={classImage.id[i]}
+                                    title={cour.title}
+                                    teacher={cour.teacher}
+                                    studio={cour.studio}
+                                    img={img.id[i]}
                                 />
                                 </TouchableOpacity>
                             ))

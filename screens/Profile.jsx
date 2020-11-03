@@ -13,7 +13,7 @@ import {
 import { Avatar, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { AuthContext } from '../context';
+import { AuthContext } from '../context/AuthContext';
 
 const Profile = ({ navigation }) => {
 

@@ -13,7 +13,7 @@ import {
 import { color } from 'react-native-reanimated';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AuthContext } from '../context'
+import { AuthContext } from '../context/AuthContext'
 const { width : WIDTH } = Dimensions.get('window')
 const SignIn = ({ navigation }) => {
 
