@@ -128,7 +128,8 @@ const Home = ({navigation}) => {
 
                 {/** recommandation */}
                 <View style={{
-                    marginTop : 30
+                    marginTop : 30,
+                    paddingBottom : 20
                 }}>
                     <Text style={{
                         color : '#7E8081',

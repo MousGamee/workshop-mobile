@@ -35,6 +35,7 @@ const Search = () => {
     const searchClass = search => {
         setSearch(search)
     }
+    
     return (
         <View style={{flex : 1, backgroundColor : 'white'}}>
             <View style={{

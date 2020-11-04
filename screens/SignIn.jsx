@@ -1,8 +1,8 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react'
 import { 
     View, 
-    Text, 
-    Button, 
+    Text,  
     ImageBackground, 
     StyleSheet, 
     Image,
@@ -22,6 +22,8 @@ const SignIn = ({ navigation }) => {
     const { signIn } = useContext(AuthContext);
 
     return (
+        <>
+        <StatusBar barStyle={"light-content"} backgroundColor={'#26DCC9'} />
         <ImageBackground
             style={styles.loginBkg}
                 source={require('../assets/loginBkg.jpg')} >
@@ -74,6 +76,7 @@ const SignIn = ({ navigation }) => {
                     <Text style={styles.btnLoginText}>Login</Text>                       
                     </TouchableOpacity>  
         </ImageBackground>
+        </>
     )
 }
 
