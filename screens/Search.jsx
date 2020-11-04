@@ -15,12 +15,26 @@ import { ClassContext } from '../context/ClassContext';
 const Search = () => {
 
     useEffect(() => {
-        
-    }, [value])
-
-   
+         getClass()
+    }, [currentSearch])
     const { cours, img } = useContext(ClassContext)
-    const [value, setValue] = useState('')
+    const [search, setSearch] = useState('')
+    const [currentSearch, setCurrentSearch] = useState([])
+    const [noData, setNoData] = useState(true)
+
+    const getClass = () => {
+        setCurrentSearch([])
+        if(cours[0].teacher === search){
+             setCurrentSearch(cours)
+             setNoData(false)
+        }
+        else setNoData(true)
+        console.log(currentSearch)
+    }
+
+    const searchClass = search => {
+        setSearch(search)
+    }
     return (
         <View style={{flex : 1, backgroundColor : 'white'}}>
             <View style={{
@@ -31,33 +45,40 @@ const Search = () => {
                 alignItems : 'center'
             }}>
                 <Ionicons name="ios-search" size={20} style={{color : "#72CCEC", marginRight : 10}} 
-                    onPress={() => alert(value)}
+                    onPress={() => getClass()}
                 />
                 <TextInput
-                onChangeText={(text) => setValue(text)}
-                value={value}
+                onChangeText={(text) => searchClass(text)}
+                value={search}
                 style={{
                     backgroundColor : "white",
                     width : '75%',
                     height : '45%',
                     borderRadius : 20,
                     paddingLeft : 20,
+                    borderColor : '#000000'
                 }}
                 placeholder="Que recherches tu ?" />
             </View>
 
             <ScrollView style={{paddingHorizontal : 5}}>
-            {
-                cours.map((cour, i) => (
-                   <Card 
-                   key={i}
-                    title={cour.title}
-                    teacher={cour.teacher}
-                    studio={cour.studio}
-                    img={img.id[i]}
-                   />
-                ))
-            }
+                { 
+                noData ? ( <View style={{flex : 1, justifyContent : "center", alignItems : "center"}} >
+                                <Text >Aucun resultat pour cette recherche</Text>
+                            </View>
+                                
+                                )
+                :
+                (  currentSearch.map((cour, i) => (
+                        <Card 
+                            key={i}
+                            title={cour.title}
+                            teacher={cour.teacher}
+                            studio={cour.studio}
+                            img={img.id[i]}
+                        />
+            )))
+                   } 
             </ScrollView>
         </View>
     )

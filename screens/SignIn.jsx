@@ -8,7 +8,8 @@ import {
     Image,
     TextInput,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    Animated
 } from 'react-native'
 import { color } from 'react-native-reanimated';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -17,20 +18,19 @@ import { AuthContext } from '../context/AuthContext'
 const { width : WIDTH } = Dimensions.get('window')
 const SignIn = ({ navigation }) => {
 
+   
     const { signIn } = useContext(AuthContext);
 
     return (
         <ImageBackground
             style={styles.loginBkg}
                 source={require('../assets/loginBkg.jpg')} >
-                    <View style={{justifyContent : "center"}}>
+                    <View style={{justifyContent : "center",}}>
                         <Image
                             style={styles.logo}
                             source={require('../assets/Workshop.png')}
                             />
-                    </View>
-
-                   
+                    </View>           
                     <View style={{marginTop : 30}}>
                         <Ionicons 
                         style={styles.inputIcon}
@@ -44,7 +44,6 @@ const SignIn = ({ navigation }) => {
                             underlineColorAndroid='transparent'
                         />
                     </View>
-
                     <View style={{marginTop : 10}}>
                         <Ionicons 
                         style={styles.inputIcon}
@@ -57,9 +56,7 @@ const SignIn = ({ navigation }) => {
                             secureTextEntry={true}
                             placeholderTextColor={'rgba(255, 255, 255, 0.7)'}
                             underlineColorAndroid='transparent'
-                        />
-                    
-                    
+                        />                   
                     <TouchableOpacity style={styles.btnEyes}>
                         <Ionicons 
                         name={'ios-eye'} 

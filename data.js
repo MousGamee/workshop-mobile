@@ -8,18 +8,16 @@ export const classItems = [
       price: "10€",
       studio : 'Studio Bleu'
     },
-  
     {
       id : 1,
       title: "House danse",
-      teacher: "Leila",
+      teacher: "Boun",
       img: "../assets/image2.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       price: "15€",
       studio : 'Studio Bleu'
 
     },
-  
     {
       id : 2,
       title: "Break",

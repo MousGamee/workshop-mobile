@@ -2,17 +2,13 @@ import React, {useContext} from 'react'
 import { 
     View, 
     Text,
-    Image,
-    SafeAreaView,
     StyleSheet, 
-    ImageBackground,
-    TouchableOpacity,
+    ImageBackground,  
     Button
 } from 'react-native'
 
 import { Avatar, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../context/AuthContext';
 import { user } from '../data';
 
@@ -57,9 +53,8 @@ const Profile = ({ navigation }) => {
         <View style={{ flex : 1, backgroundColor : 'white' }}>
             <View style={styles.header}>
                 <ImageBackground
-                style={styles.headerBkg}
-                source={require('../assets/header.png')}
-                
+                    style={styles.headerBkg}
+                    source={require('../assets/header.png')}             
                 >
                 </ImageBackground>
                 <View style={{position : "absolute", top : 80, left : 10,}}>
@@ -73,15 +68,14 @@ const Profile = ({ navigation }) => {
                             uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
                             }}
                     /></View>
-
-                    <View style={{marginTop : -150}}>
-                      
+                    <View style={{marginTop : -180}}>
+                     
                         <View style={{paddingHorizontal : 10}}>  
                         <Text style={{fontSize : 20 , color : '#C1C1C1', marginBottom : 10}}> Compte </Text>
                             {
                                 AccountList.map((item, i) => (
                                     <ListItem key={i} bottomDivider onPress={() => navigation.push(item.link)}>
-                                        <Icon name={item.icon} size={15}/>
+                                        <Icon name={item.icon} size={15} color={'#72CCEC'}/>
                                             <ListItem.Content>
                                                 <ListItem.Title>{item.title}</ListItem.Title>
                                             </ListItem.Content>
@@ -90,18 +84,13 @@ const Profile = ({ navigation }) => {
                             }
                         </View>
                     </View>
-
-                    <View>
-                        
+                    <View>                       
                         <View style={{paddingHorizontal : 10, marginTop : 15}}>
                         <Text style={{fontSize : 20 , color : '#C1C1C1', marginBottom : 10}}> Réglages </Text>
                             {
-                                Setting.map((item, i) => 
-                                
-                                (
-                                    
+                                Setting.map((item, i) => (                                    
                                     <ListItem key={i} bottomDivider onPress={() => navigation.push(item.link)}>
-                                        <Icon name={item.icon} size={15}/>
+                                        <Icon name={item.icon} size={15} color={'#72CCEC'}/>
                                             <ListItem.Content>
                                                 <ListItem.Title>{item.title}</ListItem.Title>
                                             </ListItem.Content>
