@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { 
     View, 
     Text, 
@@ -10,8 +10,7 @@ import {
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Card from '../components/Card';
-
-import { classItems } from '../data'
+import { ClassContext } from '../context/ClassContext';
 
 const Search = () => {
 
@@ -19,17 +18,8 @@ const Search = () => {
         
     }, [value])
 
-    const classImage = {
-        id : {
-          0 : require('../assets/image1.jpg'),
-          1 : require('../assets/image2.jpg'),
-          2 : require('../assets/image3.jpg'),
-          3 : require('../assets/image4.jpg'),
-          4 : require('../assets/image5.jpg'),
-          5 : require('../assets/image6.jpg'),
-        }
-      }
-
+   
+    const { cours, img } = useContext(ClassContext)
     const [value, setValue] = useState('')
     return (
         <View style={{flex : 1, backgroundColor : 'white'}}>
@@ -57,19 +47,17 @@ const Search = () => {
             </View>
 
             <ScrollView style={{paddingHorizontal : 5}}>
-
             {
-                classItems.map((item, i) => (
+                cours.map((cour, i) => (
                    <Card 
                    key={i}
-                    title={item.title}
-                    teacher={item.teacher}
-                    studio={item.studio}
-                    img={classImage.id[i]}
+                    title={cour.title}
+                    teacher={cour.teacher}
+                    studio={cour.studio}
+                    img={img.id[i]}
                    />
                 ))
             }
-           
             </ScrollView>
         </View>
     )

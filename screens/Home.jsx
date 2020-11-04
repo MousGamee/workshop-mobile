@@ -2,18 +2,15 @@ import React, { useContext } from 'react'
 import { 
     View,
      Text,
-     TextInput,
      ScrollView,
      Image,
+     StatusBar,
      TouchableOpacity,
-     ImageBackground
      } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import { SlideItem, SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 import { AuthContext } from '../context/AuthContext'
-
-import { classItems,  } from '../data'
 
 const Home = ({navigation}) => {
 
@@ -22,6 +19,7 @@ const Home = ({navigation}) => {
 
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
+            <StatusBar barStyle={"light-content"} backgroundColor={'#72CCEC'}/>
             {/**Header */}
             <View style={{
                 height : 90,
@@ -31,7 +29,7 @@ const Home = ({navigation}) => {
             }}>
                 
                 <Image
-                style={{width : 100, height : 50, marginLeft : 20, marginTop :20 }}
+                style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
                  source={require('../assets/Workshop.png')}
                             />
             </View>
@@ -40,7 +38,7 @@ const Home = ({navigation}) => {
             <ScrollView
                 style={{flex:1, paddingHorizontal : 15}}
                 >
-                <View>
+                <View style={{marginTop : 15}}>
                     <Text style={{
                         color : '#7E8081',
                         fontSize : 25,
