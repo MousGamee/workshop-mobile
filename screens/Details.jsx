@@ -11,8 +11,6 @@ import {
 } from 'react-native'
 
 import { SlideItem2 } from '../components/Category'
-
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ClassContext } from '../context/ClassContext';
 

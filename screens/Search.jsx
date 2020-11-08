@@ -15,9 +15,7 @@ import { ClassContext } from '../context/ClassContext';
 const Search = () => {
 
     const { cours, img } = useContext(ClassContext)
-
     const [search, setSearch] = useState('')
-    const [noData, setNoData] = useState(true)
 
     const searchClass = search => {
         setSearch(search)
@@ -25,9 +23,9 @@ const Search = () => {
     
     const row = []
     cours.forEach((cour, i) => {
-        if(cour.title.indexOf(search) === -1 ||  search === ''){
-            return
-        }
+        // if(cour.title.indexOf(search) === -1 ||  search === '' ){
+        //     return 
+        // }
         row.push(<Card 
             key={i}
             title={cour.title}
@@ -39,26 +37,20 @@ const Search = () => {
 
     return (
         <View style={{flex : 1, backgroundColor : 'white'}}>
-            <View style={{
-                marginTop : 10,
-                height : 100,
-                flexDirection : "row",
-                justifyContent : "center", 
-                alignItems : 'center'
-            }}>
+            <View style={styles.inputContainer}>
                 <Ionicons name="ios-search" size={20} style={{color : "#72CCEC", marginRight : 10}}  />
+                <Ionicons 
+                    name="ios-close" 
+                    size={35} 
+                    style={{color : "#72CCEC", position : "absolute", right : 50, elevation : 6, display : 'none'}}  
+                />
                 <TextInput
                 onChangeText={(text) => searchClass(text)}
                 value={search}
-                style={{
-                    backgroundColor : "white",
-                    width : '75%',
-                    height : '45%',
-                    borderRadius : 20,
-                    paddingLeft : 20,
-                    borderColor : '#000000'
-                }}
+                style={styles.searchBar}
                 placeholder="Que recherches tu ?" />
+               
+
             </View>
 
             <ScrollView style={{paddingHorizontal : 5}}>
@@ -77,13 +69,19 @@ const styles = StyleSheet.create({
         height : 80,
         alignItems : "center",
         justifyContent : 'space-around', 
-        elevation : 5,
-        
+        flexDirection : "row",
+        justifyContent : "center", 
+        alignItems : 'center',
     },
     searchBar : {
-        width : '70%',
+        backgroundColor : "white",
+        width : '75%',
         height : '70%',
-        backgroundColor : "#fefefe"
+        borderRadius : 20,
+        paddingLeft : 20,
+        borderColor : "#FFFFFF",
+        borderWidth : 1,
+        elevation : 5,
     },
     searchCardContainer : {
         flexDirection : "row",
