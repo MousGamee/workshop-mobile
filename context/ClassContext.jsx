@@ -6,7 +6,7 @@ export const ClassContext = createContext()
 const ClassContextProvider = props => {
     const [cours, setCours] = useState(classItems)
     const [img, setImg] = useState (classImage)
-    
+   
     return(
         <ClassContext.Provider value={{
             cours, img

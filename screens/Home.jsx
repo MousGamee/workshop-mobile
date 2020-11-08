@@ -6,7 +6,8 @@ import {
      Image,
      StatusBar,
      TouchableOpacity,
-     } from 'react-native'
+     } 
+from 'react-native'
 
 import { SlideItem, SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
@@ -29,11 +30,10 @@ const Home = ({navigation}) => {
             }}>
                 
                 <Image
-                style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
-                 source={require('../assets/Workshop.png')}
-                            />
+                    style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
+                    source={require('../assets/Workshop.png')}
+                />
             </View>
-
             {/**Landing */}
             <ScrollView
                 style={{flex:1, paddingHorizontal : 15}}
