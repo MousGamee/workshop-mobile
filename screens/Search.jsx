@@ -23,9 +23,9 @@ const Search = () => {
     
     const row = []
     cours.forEach((cour, i) => {
-        // if(cour.title.indexOf(search) === -1 ||  search === '' ){
-        //     return 
-        // }
+        if(cour.teacher.indexOf(search) === -1 ||  search === '' ){
+            return 
+        }
         row.push(<Card 
             key={i}
             title={cour.title}
@@ -50,7 +50,6 @@ const Search = () => {
                 style={styles.searchBar}
                 placeholder="Que recherches tu ?" />
                
-
             </View>
 
             <ScrollView style={{paddingHorizontal : 5}}>

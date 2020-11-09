@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { 
     StyleSheet, 
     Text, 
     View,
     ImageBackground,
-    Image,
     TouchableOpacity,
-    FlatList,
     ScrollView
 } from 'react-native'
 
@@ -15,7 +13,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
-    const { img, cours } = useContext(ClassContext)
+
+    useEffect(() => {
+        
+    })
+
+   
+    const { img, cours, setFavoris } = useContext(ClassContext)
     const {cour} = route.params
     return (
         <ScrollView>
@@ -35,7 +39,12 @@ const Details = ({navigation, route}) => {
                </TouchableOpacity>
 
                <TouchableOpacity style={{position : 'absolute', right : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
-                   <Ionicons name="ios-heart" size={25} color="#14AADF" />
+                   <Ionicons 
+                        onPress={() => setFavoris(cour.id)}
+                        name="ios-heart" 
+                        size={25} 
+                        color={cour.isFavoris == false ?  "red" : "#14AADF" }
+                        />
                </TouchableOpacity>
            </ImageBackground>
 

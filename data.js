@@ -6,7 +6,8 @@ export const classItems = [
       img: "../assets/image1.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       price: "10€",
-      studio : 'Studio Bleu'
+      studio : 'Studio Bleu',
+      isFavoris : true
     },
     {
       id : 1,
@@ -15,7 +16,8 @@ export const classItems = [
       img: "../assets/image2.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       price: "15€",
-      studio : 'Studio Bleu'
+      studio : 'Studio Bleu',
+      isFavoris : true
 
     },
     {
@@ -26,6 +28,7 @@ export const classItems = [
       description:  " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio harmonic',
       price: "20€",
+      isFavoris : true
     },
     {
       id : 3,
@@ -35,6 +38,7 @@ export const classItems = [
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'LAX Studio',
       price: "5€",
+      isFavoris : false
     },
   
     {
@@ -45,6 +49,7 @@ export const classItems = [
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio Massaro',
       price: "14€",
+      isFavoris : false
     },
   
     {
@@ -55,6 +60,7 @@ export const classItems = [
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio MRG',
       price: "14€",
+      isFavoris : false
     },
     {
       id : 6,
@@ -64,6 +70,7 @@ export const classItems = [
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio MRG',
       price: "14€",
+      isFavoris : false
     }
   ];
   
