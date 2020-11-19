@@ -4,9 +4,7 @@ import {
     Text, 
     StyleSheet, 
     TextInput, 
-    Image, 
     ScrollView,
-    TouchableOpacity
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Card from '../components/Card';
@@ -37,7 +35,7 @@ const Search = () => {
 
     return (
         <View style={{flex : 1, backgroundColor : 'white'}}>
-            <View style={styles.inputContainer}>
+            {/* <View style={styles.inputContainer}>
                 <Ionicons name="ios-search" size={20} style={{color : "#72CCEC", marginRight : 10}}  />
                 <Ionicons 
                     name="ios-close" 
@@ -50,7 +48,7 @@ const Search = () => {
                 style={styles.searchBar}
                 placeholder="Que recherches tu ?" />
                
-            </View>
+            </View> */}
 
             <ScrollView style={{paddingHorizontal : 5}}>
               {row}

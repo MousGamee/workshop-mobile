@@ -8,32 +8,16 @@ import {
      TouchableOpacity,
      } 
 from 'react-native'
-
 import { SlideItem, SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 import { AuthContext } from '../context/AuthContext'
 
 const Home = ({navigation}) => {
-
     const { cours, img } = useContext(ClassContext)
     const { users } = useContext(AuthContext)
-
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             <StatusBar barStyle={"light-content"} backgroundColor={'#72CCEC'}/>
-            {/**Header */}
-            <View style={{
-                height : 90,
-                flexDirection : "row",
-                backgroundColor : '#72CCEC',
-                alignItems : 'center'
-            }}>
-                
-                <Image
-                    style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
-                    source={require('../assets/Workshop.png')}
-                />
-            </View>
             {/**Landing */}
             <ScrollView
                 style={{flex:1, paddingHorizontal : 15}}

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
+import { Image, TextInput } from 'react-native'
 //Screens
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
@@ -32,18 +33,51 @@ import { createStackNavigator } from '@react-navigation/stack';
 const AuthStack = createStackNavigator()
 const HomeStack = createStackNavigator()
 const ProfileStack = createStackNavigator()
-const SearchStack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
-const HomeStackPage = () => (
+const HomeStackPage = ({ navigation }) => (
   <HomeStack.Navigator
     initialRouteName="Home"
-    screenOptions={{
-      headerShown : false
-    }}
   >
-    <HomeStack.Screen name="Home" component={Home} />
-    <HomeStack.Screen name="Details" component={Details} />
+    <HomeStack.Screen name="Home" component={Home} 
+      options={{
+        headerTitle : false,
+        headerStyle : {
+          backgroundColor : '#72CCEC',
+        },
+        headerLeft : () => (
+          <Image
+              style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
+              source={require('../assets/Workshop.png')}
+          />
+        ),
+        headerRight : () => (
+          <Ionicons name='ios-search' size={25} color='#ffffff' style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
+        ) 
+      }}/>
+    <HomeStack.Screen name="Details" component={Details} options={{
+      headerTitle : false
+    }}/>
+    <HomeStack.Screen name="Search" component={Search} options={{
+      headerTitle : false,
+      headerTintColor : '#ffffff',
+      headerRight : () => (
+        <TextInput style={{
+          width : 300,
+          height : 40,
+          marginRight : 15,
+          borderRadius : 10,
+          backgroundColor : 'white',
+          borderColor : 'rgba(0, 0, 0, .2)',
+          borderWidth : 1,
+          paddingHorizontal : 15
+        }} placeholder='Que recherches tu ?' />
+      ),
+      headerStyle : {
+        backgroundColor : '#72CCEC',
+      }
+
+    }}/>
   </HomeStack.Navigator>
 )
 
@@ -75,17 +109,16 @@ const AuthStackPage = () => (
   </AuthStack.Navigator>
 )
 
-const SearchStackPage = () => (
-  <SearchStack.Navigator
-    initialRouteName="Search"
-    screenOptions={{
-      headerShown : false
-    }}
-  >
-     <SearchStack.Screen name="Search" component={Search} />
-     <SearchStack.Screen name="SearchResult" component={SearchResult} />
-  </SearchStack.Navigator>
-)
+// const SearchStackPage = () => (
+//   <SearchStack.Navigator
+//     initialRouteName="Search"
+//     screenOptions={{
+//       headerShown : false
+//     }}
+//   >
+//      <SearchStack.Screen name="SearchResult" component={SearchResult} />
+//   </SearchStack.Navigator>
+// )
 
 
 const MainNavigation = () => {
@@ -101,11 +134,7 @@ const MainNavigation = () => {
             screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-              if (route.name === 'Recherche') {
-                iconName = focused
-                  ? 'ios-search'
-                  : 'ios-search';
-              } else if (route.name === 'Favoris') {
+             if (route.name === 'Favoris') {
                 iconName = focused ? 'ios-heart' : 'ios-heart';
               } else if (route.name === 'Profil'){
                 iconName = focused ? 'ios-person' : 'ios-person';
@@ -122,7 +151,6 @@ const MainNavigation = () => {
     }}
     >
       <Tab.Screen name="Home" component={HomeStackPage} />
-      <Tab.Screen name="Recherche" component={SearchStackPage} />
       <Tab.Screen name="Favoris" component={Favoris} />
       <Tab.Screen name="Profil" component={ProfileStackPage} />
     </Tab.Navigator>
