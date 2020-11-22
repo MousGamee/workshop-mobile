@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import ResultClass from '../screens/ResultClass'
 import ResultTeacher from '../screens/ResultTeacher'
 import ResultEvent from '../screens/ResultEvent'
+
 const Tab = createMaterialTopTabNavigator()
 
 const TopTabNavigation = () => {
