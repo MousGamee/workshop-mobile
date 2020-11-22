@@ -23,12 +23,6 @@ const Profile = ({ navigation }) => {
             link : 'MyClass'
         },
         {
-            title : 'Mes Achats',
-            icon : 'id-badge',
-            link : 'MyPurchase'
-
-        },
-        {
             title : 'Mon compte',
             icon : 'gears',
             link : 'MyAccount'

@@ -8,8 +8,7 @@ import {
 } from 'react-native'
 
 const Card = ({title, teacher, studio, img}) => {
-    return (
-        <TouchableOpacity>
+    return (    
         <View style={styles.searchCardContainer}>
         <View style={styles.imageContainer}>
             <Image 
@@ -25,7 +24,6 @@ const Card = ({title, teacher, studio, img}) => {
             <Text style={styles.classStudio}>{studio}</Text>
         </View>
     </View>
-    </TouchableOpacity>
     )
 }
 

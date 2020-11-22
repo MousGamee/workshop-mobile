@@ -6,11 +6,13 @@ import {
      Image,
      StatusBar,
      TouchableOpacity,
+     FlatList,
      } 
 from 'react-native'
 import { SlideItem, SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 import { AuthContext } from '../context/AuthContext'
+import * as Animatable from 'react-native-animatable'
 
 const Home = ({navigation}) => {
     const { cours, img } = useContext(ClassContext)
@@ -22,7 +24,7 @@ const Home = ({navigation}) => {
             <ScrollView
                 style={{flex:1, paddingHorizontal : 15}}
                 >
-                <View style={{marginTop : 15}}>
+                <Animatable.View style={{marginTop : 15}} animation='fadeInUp' delay={400}>
                     <Text style={{
                         color : '#7E8081',
                         fontSize : 25,
@@ -32,9 +34,11 @@ const Home = ({navigation}) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     >
-                        {
+                         {
                             cours.map((cour, i) => (
-                                <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {cour})}>
+                                <TouchableOpacity
+                                key={i} 
+                                onPress={() => navigation.navigate('Details', {cour})}>
                                   <SlideItem 
                                     key={i}
                                     title={cour.title}
@@ -45,16 +49,15 @@ const Home = ({navigation}) => {
                                      />
                                      </TouchableOpacity>
                             ))
-                        }
+                        } 
                         
                     </ScrollView>
-
-                </View>
+                </Animatable.View>
 
                 {/**Popular */}    
-                <View style={{
+                <Animatable.View style={{
                     marginTop : 30
-                }}>
+                }} animation='fadeInUp' delay={500}>
                     <Text style={{
                         color : '#7E8081',
                         fontSize : 20,
@@ -79,7 +82,7 @@ const Home = ({navigation}) => {
                         }
                     </ScrollView>
 
-                </View>   
+                </Animatable.View>   
 
                 {/** recommandation */}
                 <View style={{

@@ -56,7 +56,10 @@ const HomeStackPage = ({ navigation }) => (
         ) 
       }}/>
     <HomeStack.Screen name="Details" component={Details} options={{
-      headerTitle : false
+      headerTitle : false,
+      headerBackTitleVisible : false,
+      headerTransparent : true, 
+      headerTintColor : '#ffffff',
     }}/>
     <HomeStack.Screen name="Search" component={Search} options={{
       headerTitle : false,
@@ -147,7 +150,12 @@ const MainNavigation = () => {
     })}
     tabBarOptions={{
       activeTintColor: '#1D90E8',
-      inactiveTintColor : 'gray'
+      inactiveTintColor : 'gray',
+      keyboardHidesTabBar : true,
+      style : {
+        paddingHorizontal : 40
+      }
+      
     }}
     >
       <Tab.Screen name="Home" component={HomeStackPage} />

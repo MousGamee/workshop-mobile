@@ -18,64 +18,56 @@ export const Category = ({}) => {
 
 export const SlideItem = ({img, title, teacher, studio,}) => (
     <View style={{marginRight : 20}}>
-             
-                 <View style={{
-                         width : 255,
-                            height : 330,
-                            }}>
-                            
-                            <Image 
-                            imageStyle={{borderRadius : 65}}
-                            borderRadius={20}
-                            style={{
-                                resizeMode : "cover",
-                                flex : 1,
-                                width : null,
-                                height : null,
-                            }}
-                            source={img}/>
-                                
-                          
-                            </View>
-                
-                            <View style={{paddingHorizontal : 10}}>
-                                <View style={{flexDirection : "row", justifyContent : "space-between"}}>
-                                    <Text style={{fontSize : 15, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>
-                                    <Text>{studio}</Text>
-                                </View>
-                                <View>
-                                    <Text>{teacher}</Text>
-                                </View>
-                            </View>
-                        </View>
+        <View style={{
+            width : 195,
+            height : 270,
+        }}>
+            <Image 
+                imageStyle={{borderRadius : 65}}
+                borderRadius={20}
+                style={{
+                    resizeMode : "cover",
+                    flex : 1,
+                    width : null,
+                     height : null,
+                 }}
+                   source={img}/>  
+        </View>
+        <View style={{paddingHorizontal : 10}}>
+            <View style={{flexDirection : "row", justifyContent : "space-between"}}>
+                <Text style={{fontSize : 13, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>
+                <Text style={{fontSize : 13}}>{studio}</Text>
+            </View>
+            <View>
+                <Text style={{fontSize : 14, fontWeight : 'bold'}}>{teacher}</Text>
+            </View>
+        </View>
+    </View>
 )
 
 export const SlideItem2 = ({img, title, teacher, studio}) => (
     <View style={{marginRight : 20}}>
-        
         <View style={{
-                         width : 140,
-                            height : 180,
-                            }}>
-                            <Image 
-                             borderRadius={20}
-                            style={{
-                                resizeMode : "cover",
-                                flex : 1,
-                                width : null,
-                                height : null,
-                            }}
-                            source={img}/>
-                            </View>
-               
-                            <View style={{paddingHorizontal : 5}}>
-                                <View style={{flexDirection : "row", justifyContent : "space-between"}}>
-                                    <Text style={{fontSize : 12, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>
-                                   
-                                </View>
-                                <View>
-                                    <Text>{teacher}</Text>
-                                </View>
-                            </View>
-                        </View>
+            width : 140,
+            height : 180,
+            }}>
+            <Image 
+             borderRadius={20}
+            style={{
+                resizeMode : "cover",
+                flex : 1,
+                width : null,
+                height : null,
+            }}
+            source={img}/>
+        </View>             
+        <View style={{paddingHorizontal : 5}}>
+            <View style={{flexDirection : "row", justifyContent : "space-between"}}>
+                <Text style={{fontSize : 12, fontWeight : 'bold', color : "#14AADF"}}>{title}</Text>                                  
+            </View>
+            <View>
+                <Text>{teacher}</Text>
+            </View>
+        </View>
+    </View>
 )

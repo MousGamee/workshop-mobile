@@ -31,21 +31,14 @@ const Details = ({navigation, route}) => {
             >
                <Text style={styles.tagLine}> {cour.title}</Text>
                <Text style={styles.classTitle}>{cour.teacher}</Text>
-
-               <TouchableOpacity 
-                onPress={() => navigation.goBack()}
-                style={{position : 'absolute', left : 20, top : 40,  padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
-                   <Ionicons name="ios-arrow-back" size={25} color="#14AADF" />
-               </TouchableOpacity>
-
-               <TouchableOpacity style={{position : 'absolute', right : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
+               {/* <TouchableOpacity style={{position : 'absolute', right : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
                    <Ionicons 
                         onPress={() => setFavoris(cour.id)}
                         name="ios-heart" 
                         size={25} 
                         color={cour.isFavoris == false ?  "red" : "#14AADF" }
                         />
-               </TouchableOpacity>
+               </TouchableOpacity> */}
            </ImageBackground>
 
            <TouchableOpacity style={styles.btnReseerve}>
