@@ -90,3 +90,36 @@ export const classItems = [
     lastName : 'DELAVIE',
     email : 'samira@gmail.com'
   }
+
+  export const teachers = [
+    {
+      id : 0,
+      name : 'Jerky',
+      picture : require('./assets/teacher/jerky.jpg') 
+    },
+    {
+      id : 1,
+      name : 'Yacine',
+      picture : require('./assets/teacher/yacine.jpg')
+    },
+    {
+      id : 2,
+      name : 'Dante',
+      picture : require('./assets/teacher/dante.jpg')
+    },
+    {
+      id : 3,
+      name : 'Lionel',
+      picture : require('./assets/teacher/lionel.jpg')
+    },
+    {
+      id : 4,
+      name : 'Carmel',
+      picture : require('./assets/teacher/carmel.jpg')
+    },
+    {
+      id : 5,
+      name : 'Nazar',
+      picture : require('./assets/teacher/nazar.jpg')
+    }
+  ]

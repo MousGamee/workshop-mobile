@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Image, TextInput, StyleSheet } from 'react-native'
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from '../screens/Home'
 import Details from '../screens/Details'
 import Search from '../screens/Search'
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const HomeStack = createStackNavigator()
+import { ClassContext } from '../context/ClassContext'
+import TeacherDetail from '../screens/TeacherDetail';
 
 const HomeStackPage = ({ navigation }) => {
-
+  const { search } = useContext(ClassContext)
     return (
     <HomeStack.Navigator
       initialRouteName="Home"
+      screenOptions={{
+        gestureDirection : "vertical-inverted",
+        gestureEnabled : true,
+        cardStyleInterpolator : 
+          CardStyleInterpolators.forScaleFromCenterAndroid
+      }}
     >
       <HomeStack.Screen name="Home" component={Home} 
         options={{
@@ -42,15 +49,15 @@ const HomeStackPage = ({ navigation }) => {
         headerRight : () => (
           <TextInput 
           style={styles.SearchBar} 
-          placeholder='Que recherches tu ?' 
-          onSubmitEditing={() => alert('executer la recherche')}
+          placeholder='Cous, Event, Professeur...?' 
+          onSubmitEditing={() => search()}
           />
         ),
         headerStyle : {
           backgroundColor : '#72CCEC',
         }
-  
       }}/>
+      <HomeStack.Screen name="Teacher" component={TeacherDetail} />
     </HomeStack.Navigator>
     )
 }

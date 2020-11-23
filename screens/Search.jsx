@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { 
     FlatList, 
     Text, 
     View,
     TouchableOpacity 
 } from 'react-native';
+import { ClassContext } from '../context/ClassContext';
 import TopTabNavigation from '../navigation/TopTabNavigation';
 const category = ["Afro", "Hip-hop", "House", "Breack"]
 const Search = () => {
-    const [isSearch, setIsSearch] = useState(true)
+    const { isSearch } = useContext(ClassContext)
     return ( 
         <>{
             !isSearch ? (

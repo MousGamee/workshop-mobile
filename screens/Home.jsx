@@ -3,20 +3,25 @@ import {
     View,
      Text,
      ScrollView,
-     Image,
      StatusBar,
      TouchableOpacity,
      FlatList,
+     StyleSheet
      } 
 from 'react-native'
-import { SlideItem, SlideItem2 } from '../components/Category'
+import { SlideItem, SlideItem2, TeacherPic } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 import { AuthContext } from '../context/AuthContext'
 import * as Animatable from 'react-native-animatable'
 
 const Home = ({navigation}) => {
-    const { cours, img } = useContext(ClassContext)
+
+    const { cours, img, teacher } = useContext(ClassContext)
     const { users } = useContext(AuthContext)
+
+    const gotoTeacherDetails = () => {
+        navigation.navigate('Teacher')
+    }
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             <StatusBar barStyle={"light-content"} backgroundColor={'#72CCEC'}/>
@@ -39,7 +44,7 @@ const Home = ({navigation}) => {
                                 <TouchableOpacity
                                 key={i} 
                                 onPress={() => navigation.navigate('Details', {cour})}>
-                                  <SlideItem 
+                                  <SlideItem2 
                                     key={i}
                                     title={cour.title}
                                     teacher={cour.teacher}
@@ -50,7 +55,7 @@ const Home = ({navigation}) => {
                                      </TouchableOpacity>
                             ))
                         } 
-                        
+
                     </ScrollView>
                 </Animatable.View>
 
@@ -81,26 +86,20 @@ const Home = ({navigation}) => {
                             ))
                         }
                     </ScrollView>
-
                 </Animatable.View>   
 
                 {/** recommandation */}
-                <View style={{
-                    marginTop : 30
-                }}>
+                <View style={{marginTop : 30}}>
                     <Text style={{
                         color : '#7E8081',
                         fontSize : 20,
                         marginBottom : 10,
                     }}>Recommandé pour vous {users.name}</Text>
-                    <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    >
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         {
                             cours.map((cour, i) => (
                             <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {cour})}>
-                                <SlideItem2 
+                                <SlideItem 
                                     key={i}
                                     title={cour.title}
                                     teacher={cour.teacher}
@@ -112,6 +111,28 @@ const Home = ({navigation}) => {
                         }
                     </ScrollView>
                 </View>  
+                {/* Teacher recommendation */}
+                <View style={{marginTop : 30, paddingBottom : 20 }}>
+                    <Text style={{
+                        color : '#7E8081',
+                        fontSize : 20,
+                        marginBottom : 10,
+                    }}>Les Profs en <Text style={{color : '#72CCEC'}}>Hip Hop</Text></Text>
+
+                        <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id }
+                        data={teacher}
+                        renderItem={({ item }) => (
+                            <TeacherPic 
+                            name={item.name}
+                            img={item.picture}
+                            gotoTeacherDetails={gotoTeacherDetails}/>
+                        )}
+                        />
+        
+                </View>
 
                 {/** recommandation */}
                 <View style={{
@@ -149,3 +170,7 @@ const Home = ({navigation}) => {
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+
+})

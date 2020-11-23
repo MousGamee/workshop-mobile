@@ -7,18 +7,11 @@ import {
     TouchableOpacity,
     ScrollView
 } from 'react-native'
-
 import { SlideItem2 } from '../components/Category'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
 
-    useEffect(() => {
-        
-    })
-
-   
     const { img, cours, setFavoris } = useContext(ClassContext)
     const {cour} = route.params
     return (
@@ -31,14 +24,6 @@ const Details = ({navigation, route}) => {
             >
                <Text style={styles.tagLine}> {cour.title}</Text>
                <Text style={styles.classTitle}>{cour.teacher}</Text>
-               {/* <TouchableOpacity style={{position : 'absolute', right : 20, top : 40, backgroundColor : '#fff', padding : 10, borderRadius : 40, width : 40, height : 40, alignContent : "center"}}>
-                   <Ionicons 
-                        onPress={() => setFavoris(cour.id)}
-                        name="ios-heart" 
-                        size={25} 
-                        color={cour.isFavoris == false ?  "red" : "#14AADF" }
-                        />
-               </TouchableOpacity> */}
            </ImageBackground>
 
            <TouchableOpacity style={styles.btnReseerve}>
@@ -53,8 +38,6 @@ const Details = ({navigation, route}) => {
                <View>
                    <Text>{cour.description}</Text>
                </View>
-           
-
            <View style={{
                     marginTop : 30
                 }}>
