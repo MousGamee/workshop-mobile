@@ -6,7 +6,6 @@ import {
     Image,
     Dimensions
 } from 'react-native'
-
 const WIDTH = Dimensions.get('window').width
 
 const Card = ({title, teacher, studio, img}) => {

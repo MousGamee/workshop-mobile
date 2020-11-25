@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const TeacherDetail = () => {
+const teacherDetails = () => {
     return (
         <View>
             <Text>Teacher details</Text>
@@ -9,6 +9,6 @@ const TeacherDetail = () => {
     )
 }
 
-export default TeacherDetail
+export default teacherDetails
 
 const styles = StyleSheet.create({})

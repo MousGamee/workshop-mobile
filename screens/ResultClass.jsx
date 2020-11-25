@@ -1,17 +1,14 @@
 import React, { useContext } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView , FlatList} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native'
 import Card from '../components/Card'
 import { ClassContext } from '../context/ClassContext'
 
 const ResultClass = ({navigation}) => {
-    const { cours, coursBackup, img, textSearch } = useContext(ClassContext)
-   const filterCours = event => {
-       var query = event.nativeEvent.text
-   }
+    const { cours, textSearch } = useContext(ClassContext)
+
     return (
         <View style={styles.container}>
             <Text>{textSearch}</Text>
-            <ScrollView style={{flex : 1 , paddingTop : 10}}>
                 <FlatList 
                     keyExtractor={item => item.id.toString()}
                     data={cours}
@@ -26,7 +23,6 @@ const ResultClass = ({navigation}) => {
                     </TouchableOpacity>
                     )}
                 />
-            </ScrollView>
         </View>
     )
 }

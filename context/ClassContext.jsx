@@ -5,10 +5,10 @@ export const ClassContext = createContext()
 
 const ClassContextProvider = props => {
     const [cours, setCours] = useState(classItems)
-    const [coursBackup, setCoursBackup] = useState(classItems)
+    const [coursBackup, setCoursBackup] = useState([])
     const [img, setImg] = useState (classImage)
     const [teacher, setTeacher] = useState (teachers)
-    const [isSearch, setIsSearch] = useState (false)
+    const [isSearch, setIsSearch] = useState (true)
     const [textSearch, setTextSearch] = useState('')
 
     // mettre dans les favoris
@@ -20,17 +20,13 @@ const ClassContextProvider = props => {
     const search = (text) => {
         console.log(textSearch)
         setTextSearch(text)
-        if(textSearch.length > 0){
-            setIsSearch(true)
-        }else setIsSearch(false)
-        console.log(isSearch)
-        console.log(textSearch)
-        console.log(textSearch.length)
+        // afficher le resultat en fonction de la recherche
+       
     }
 
     //changement de laffichage seulement si une recherche est en cours
     const handleSearch = () => {
-        setIsSearch(!isSearch)
+        
     }
     return(
         <ClassContext.Provider value={{

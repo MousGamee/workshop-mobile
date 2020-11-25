@@ -93,8 +93,8 @@ export const classItems = [
   }
 
   export const user = {
-    name : 'Samira',
-    lastName : 'DELAVIE',
+    name : 'Anna',
+    lastName : 'MONTANA',
     email : 'samira@gmail.com'
   }
 
@@ -102,31 +102,37 @@ export const classItems = [
     {
       id : 0,
       name : 'Jerky',
-      picture : require('./assets/teacher/jerky.jpg') 
+      picture : require('./assets/teacher/jerky.jpg') ,
+      style : 'Hip Hop'
     },
     {
       id : 1,
       name : 'Yacine',
-      picture : require('./assets/teacher/yacine.jpg')
+      picture : require('./assets/teacher/yacine.jpg'),
+      style : 'Hip Hop'
     },
     {
       id : 2,
       name : 'Dante',
-      picture : require('./assets/teacher/dante.jpg')
+      picture : require('./assets/teacher/dante.jpg'),
+      style : 'Hip Hop'
     },
     {
       id : 3,
       name : 'Lionel',
-      picture : require('./assets/teacher/lionel.jpg')
+      picture : require('./assets/teacher/lionel.jpg'),
+      style : 'Hip Hop'
     },
     {
       id : 4,
       name : 'Carmel',
-      picture : require('./assets/teacher/carmel.jpg')
+      picture : require('./assets/teacher/carmel.jpg'),
+      style : 'Hip Hop'
     },
     {
       id : 5,
       name : 'Nazar',
-      picture : require('./assets/teacher/nazar.jpg')
+      picture : require('./assets/teacher/nazar.jpg'),
+      style : 'Hip Hop'
     }
   ]

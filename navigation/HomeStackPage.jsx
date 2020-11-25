@@ -7,7 +7,7 @@ import Search from '../screens/Search'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const HomeStack = createStackNavigator()
 import { ClassContext } from '../context/ClassContext'
-import TeacherDetail from '../screens/TeacherDetail';
+import TeacherDetails from '../screens/TeacherDetails';
 
 const WIDTH = Dimensions.get('window').width
 const HomeStackPage = ({ navigation }) => {
@@ -53,7 +53,6 @@ const HomeStackPage = ({ navigation }) => {
           style={styles.SearchBar} 
           placeholder='Cous, Event, Professeur...?' 
           onChangeText={(text) => search(text)}
-          onSubmitEditing={() => search()}
           value={textSearch}
           />
         ),
@@ -61,7 +60,12 @@ const HomeStackPage = ({ navigation }) => {
           backgroundColor : '#72CCEC',
         }
       }}/>
-      <HomeStack.Screen name="Teacher" component={TeacherDetail} />
+      <HomeStack.Screen name="Teacher" component={TeacherDetails} options={{
+        headerTitle : false,
+        headerBackTitleVisible : false,
+        headerTransparent : true, 
+        headerTintColor : '#72CCEC',
+      }}/>
     </HomeStack.Navigator>
     )
 }
