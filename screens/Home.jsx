@@ -35,30 +35,26 @@ const Home = ({navigation}) => {
                         fontSize : 25,
                         marginBottom : 10,
                     }}>Top du jour</Text>
-                    <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    >
-                         {
-                            cours.map((cour, i) => (
-                                <TouchableOpacity
-                                key={i} 
-                                onPress={() => navigation.navigate('Details', {cour})}>
-                                  <SlideItem2 
-                                    key={i}
-                                    title={cour.title}
-                                    teacher={cour.teacher}
-                                    studio={cour.studio}
-                                    img={img.id[i]}
-                            
-                                     />
-                                     </TouchableOpacity>
-                            ))
-                        } 
-
-                    </ScrollView>
+                    
+                   <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={cours}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item, i }) => (
+                    <TouchableOpacity                   
+                    onPress={() => navigation.navigate('Details', {item})}>
+                      <SlideItem2  
+                        title={item.title}
+                        teacher={item.teacher}
+                        studio={item.studio}
+                        img={item.img}
+                
+                         />
+                         </TouchableOpacity>
+                   )}
+                   />
                 </Animatable.View>
-
                 {/**Popular */}    
                 <Animatable.View style={{
                     marginTop : 30
@@ -68,24 +64,24 @@ const Home = ({navigation}) => {
                         fontSize : 20,
                         marginBottom : 10,
                     }}>Populaire</Text>
-                    <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    >
-                       {
-                            cours.map((cour, i) => (
-                            <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {cour})}>
-                                <SlideItem2 
-                                    key={i}
-                                    title={cour.title}
-                                    teacher={cour.teacher}
-                                    studio={cour.studio}
-                                    img={img.id[i]}
-                                    />
-                            </TouchableOpacity>
-                            ))
-                        }
-                    </ScrollView>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={cours}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item, i }) => (
+                    <TouchableOpacity                   
+                    onPress={() => navigation.navigate('Details', {item})}>
+                      <SlideItem  
+                        title={item.title}
+                        teacher={item.teacher}
+                        studio={item.studio}
+                        img={item.img}
+                
+                         />
+                         </TouchableOpacity>
+                   )}
+                   />
                 </Animatable.View>   
 
                 {/** recommandation */}
@@ -95,21 +91,24 @@ const Home = ({navigation}) => {
                         fontSize : 20,
                         marginBottom : 10,
                     }}>Recommandé pour vous {users.name}</Text>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        {
-                            cours.map((cour, i) => (
-                            <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {cour})}>
-                                <SlideItem 
-                                    key={i}
-                                    title={cour.title}
-                                    teacher={cour.teacher}
-                                    studio={cour.studio}
-                                    img={img.id[i]}
-                                    />
-                            </TouchableOpacity>
-                            ))
-                        }
-                    </ScrollView>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={cours}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item, i }) => (
+                    <TouchableOpacity                   
+                    onPress={() => navigation.navigate('Details', {item})}>
+                      <SlideItem2  
+                        title={item.title}
+                        teacher={item.teacher}
+                        studio={item.studio}
+                        img={item.img}
+                
+                         />
+                         </TouchableOpacity>
+                   )}
+                   />
                 </View>  
                 {/* Teacher recommendation */}
                 <View style={{marginTop : 30, paddingBottom : 20 }}>
@@ -122,7 +121,7 @@ const Home = ({navigation}) => {
                         <FlatList
                         horizontal
                         showsHorizontalScrollIndicator={false}
-                        keyExtractor={(item) => item.id }
+                        keyExtractor={(item) => item.id.toString() }
                         data={teacher}
                         renderItem={({ item }) => (
                             <TeacherPic 
@@ -144,24 +143,24 @@ const Home = ({navigation}) => {
                         fontSize : 20,
                         marginBottom : 10,
                     }}>Parce que vous aimez le <Text style={{color : '#72CCEC'}}>Hip Hop</Text></Text>
-                    <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    >
-                        {
-                            cours.map((cour, i) => (
-                            <TouchableOpacity key={i} onPress={() => navigation.navigate('Details', {cour})}>
-                                <SlideItem2 
-                                    key={i}
-                                    title={cour.title}
-                                    teacher={cour.teacher}
-                                    studio={cour.studio}
-                                    img={img.id[i]}
-                                    />
-                            </TouchableOpacity>
-                            ))
-                        }
-                    </ScrollView>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={cours}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item, i }) => (
+                    <TouchableOpacity                   
+                    onPress={() => navigation.navigate('Details', {item})}>
+                      <SlideItem2  
+                        title={item.title}
+                        teacher={item.teacher}
+                        studio={item.studio}
+                        img={item.img}
+                
+                         />
+                         </TouchableOpacity>
+                   )}
+                   />
                 </View>   
 
                 </ScrollView>

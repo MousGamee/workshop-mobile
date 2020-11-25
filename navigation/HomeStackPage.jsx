@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Image, TextInput, StyleSheet } from 'react-native'
+import { Image, TextInput, StyleSheet, Dimensions } from 'react-native'
 import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from '../screens/Home'
 import Details from '../screens/Details'
@@ -9,8 +9,10 @@ const HomeStack = createStackNavigator()
 import { ClassContext } from '../context/ClassContext'
 import TeacherDetail from '../screens/TeacherDetail';
 
+const WIDTH = Dimensions.get('window').width
 const HomeStackPage = ({ navigation }) => {
-  const { search } = useContext(ClassContext)
+  const { search, textSearch, setTextSearch } = useContext(ClassContext)
+
     return (
     <HomeStack.Navigator
       initialRouteName="Home"
@@ -50,7 +52,9 @@ const HomeStackPage = ({ navigation }) => {
           <TextInput 
           style={styles.SearchBar} 
           placeholder='Cous, Event, Professeur...?' 
+          onChangeText={(text) => search(text)}
           onSubmitEditing={() => search()}
+          value={textSearch}
           />
         ),
         headerStyle : {
@@ -66,7 +70,7 @@ export default HomeStackPage
 
 const styles = StyleSheet.create({
   SearchBar : {
-      width : 300,
+      width : WIDTH -60,
       height : 40,
       marginRight : 15,
       borderRadius : 10,

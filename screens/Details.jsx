@@ -25,11 +25,6 @@ const Details = ({navigation, route}) => {
                <Text style={styles.tagLine}> {cour.title}</Text>
                <Text style={styles.classTitle}>{cour.teacher}</Text>
            </ImageBackground>
-
-           <TouchableOpacity style={styles.btnReseerve}>
-               <Text style={styles.btnText}>Réserver</Text>
-           </TouchableOpacity>
-
            <View style={styles.detailsContainer}>
                <View>
                    <Text style={styles.studioName}>{cour.studio}</Text>
@@ -93,19 +88,6 @@ const styles = StyleSheet.create({
         fontWeight : 'bold',
         paddingHorizontal : 14,
         marginBottom : 30
-    },
-    btnReseerve : {
-        position : "absolute",
-        right : 12,
-        top : 350, 
-        backgroundColor : '#14AADF',
-        padding : 16,
-        borderRadius : 40
-    },
-    btnText : {
-        color : '#fff',
-        fontSize : 14,
-        fontWeight : 'bold'
     },
     detailsContainer : {
         paddingHorizontal : 10,

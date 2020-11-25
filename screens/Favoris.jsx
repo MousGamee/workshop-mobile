@@ -1,13 +1,10 @@
-import React, {useContext, useState} from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler';
-
+import React, {useContext, useEffect, useState} from 'react'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import Card from '../components/Card';
 import { ClassContext } from '../context/ClassContext';
 
 const Favoris = () => {
     const { cours, img } = useContext(ClassContext)
-
     const favoriteClass = []
 
     cours.forEach((cour, i) => {
@@ -22,12 +19,12 @@ const Favoris = () => {
             img={img.id[i]}
         />)
     })
+    
     return (
         <View style={{flex : 1, justifyContent : "center", alignItems : 'center'}}>
             <ScrollView style={{marginTop : 20 }}>
                 {favoriteClass} 
-            </ScrollView>
-          
+            </ScrollView>    
         </View>
     )
 }

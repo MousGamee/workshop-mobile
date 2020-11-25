@@ -7,6 +7,7 @@ export const classItems = [
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       price: "10€",
       studio : 'Studio Bleu',
+      img : require('./assets/image1.jpg'),
       isFavoris : true
     },
     {
@@ -16,6 +17,7 @@ export const classItems = [
       img: "../assets/image2.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       price: "15€",
+      img : require('./assets/image1.jpg'),
       studio : 'Studio Bleu',
       isFavoris : true
 
@@ -27,6 +29,7 @@ export const classItems = [
       img: "../assets/image3.jpg",
       description:  " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio harmonic',
+      img : require('./assets/image1.jpg'),
       price: "20€",
       isFavoris : true
     },
@@ -37,6 +40,7 @@ export const classItems = [
       img: "../assets/image4.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'LAX Studio',
+      img : require('./assets/image1.jpg'),
       price: "5€",
       isFavoris : false
     },
@@ -48,6 +52,7 @@ export const classItems = [
       img: "../assets/image5.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio Massaro',
+      img : require('./assets/image1.jpg'),
       price: "14€",
       isFavoris : false
     },
@@ -59,6 +64,7 @@ export const classItems = [
       img: "../assets/image6.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio MRG',
+      img : require('./assets/image1.jpg'),
       price: "14€",
       isFavoris : false
     },
@@ -69,6 +75,7 @@ export const classItems = [
       img: "../assets/image6.jpg",
       description: " ipsum dolor sit amet consectetur adipisicing elit. Atque consectetur facilis earum ex ducimus iste repellat voluptatibus quos ",
       studio : 'Studio MRG',
+      img : require('./assets/image1.jpg'),
       price: "14€",
       isFavoris : false
     }

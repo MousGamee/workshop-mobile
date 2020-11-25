@@ -25,8 +25,6 @@ const Search = () => {
                 <TopTabNavigation />
             )
         }
-        
-           
         </>
     )
 }

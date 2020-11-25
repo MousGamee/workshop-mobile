@@ -6,24 +6,17 @@ import { ClassContext } from '../context/ClassContext'
 const ResultTeacher = () => {
     const { teacher } = useContext(ClassContext)
     return (
-        <View style={{flex : 1}}>
-            <FlatList
-            data={teacher}
-            keyExtractor={item => item.id}
-            renderItem={item => (
-                <ListItem  bottomDivider>
-                    <Avatar source={item.picture} />
-                    <ListItem.Content>
-                        <ListItem.Title>{item.name}</ListItem.Title>
-                        <ListItem.Subtitle>un sous titre</ListItem.Subtitle>
-                    </ListItem.Content>
-                </ListItem>
-            )}
-            />
+        <View style={styles.container}>
+            
         </View>
     )
 }
 
 export default ResultTeacher
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container : {
+        flex : 1,
+        backgroundColor : 'white'
+    }
+})
