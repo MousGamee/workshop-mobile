@@ -72,21 +72,8 @@ export const SlideItem2 = ({img, title, teacher, studio}) => (
     </View>
 )
 
-export const TeacherPic = ({gotoTeacherDetails, name, img}) => (
-    <View style={{width : 150, marginRight : 10}}>
-        <TouchableOpacity style={{width : 150, height : 150}} onPress={() => gotoTeacherDetails()}>
-            <Image 
-            borderRadius={150}
-            style={{
-                width : null,
-                height : null,
-                resizeMode : "cover",
-                flex : 1
-             }}
-                source={img}
-            />                       
-        </TouchableOpacity>
-    <Text style={{color : '#72CCEC', fontSize : 15, fontWeight : "bold", alignSelf : "center", marginTop : 10}}>{name}</Text>
-    </View>
-
+export const TeacherPic = ({ name, img}) => (
+ 
+    <>
+    </>
 )

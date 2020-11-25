@@ -1,12 +1,11 @@
 import React, { createContext, useState } from 'react'
-import { classItems, classImage, teachers } from '../data'
+import { classItems, teachers } from '../data'
 
 export const ClassContext = createContext()
 
 const ClassContextProvider = props => {
     const [cours, setCours] = useState(classItems)
     const [coursBackup, setCoursBackup] = useState([])
-    const [img, setImg] = useState (classImage)
     const [teacher, setTeacher] = useState (teachers)
     const [isSearch, setIsSearch] = useState (true)
     const [textSearch, setTextSearch] = useState('')
@@ -30,7 +29,7 @@ const ClassContextProvider = props => {
     }
     return(
         <ClassContext.Provider value={{
-            cours, coursBackup, img, teacher, textSearch, setTextSearch, setFavoris, search, isSearch
+            cours, coursBackup, teacher, textSearch, setTextSearch, setFavoris, search, isSearch
         }}>
             {props.children}
         </ClassContext.Provider>

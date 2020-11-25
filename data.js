@@ -81,16 +81,6 @@ export const classItems = [
     }
   ];
   
-  export const classImage = {
-    id : {
-      0 : require('./assets/image1.jpg'),
-      1 : require('./assets/image2.jpg'),
-      2 : require('./assets/image3.jpg'),
-      3 : require('./assets/image4.jpg'),
-      4 : require('./assets/image5.jpg'),
-      5 : require('./assets/image6.jpg'),
-    }
-  }
 
   export const user = {
     name : 'Anna',
@@ -115,24 +105,24 @@ export const classItems = [
       id : 2,
       name : 'Dante',
       picture : require('./assets/teacher/dante.jpg'),
-      style : 'Hip Hop'
+      style : 'Break'
     },
     {
       id : 3,
       name : 'Lionel',
       picture : require('./assets/teacher/lionel.jpg'),
-      style : 'Hip Hop'
+      style : 'Afro'
     },
     {
       id : 4,
       name : 'Carmel',
       picture : require('./assets/teacher/carmel.jpg'),
-      style : 'Hip Hop'
+      style : 'House'
     },
     {
       id : 5,
       name : 'Nazar',
       picture : require('./assets/teacher/nazar.jpg'),
-      style : 'Hip Hop'
+      style : 'House'
     }
   ]

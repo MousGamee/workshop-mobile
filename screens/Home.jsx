@@ -6,7 +6,8 @@ import {
      StatusBar,
      TouchableOpacity,
      FlatList,
-     StyleSheet
+     StyleSheet,
+     Image
      } 
 from 'react-native'
 import { SlideItem, SlideItem2, TeacherPic } from '../components/Category'
@@ -18,10 +19,7 @@ const Home = ({navigation}) => {
 
     const { cours, img, teacher } = useContext(ClassContext)
     const { users } = useContext(AuthContext)
-
-    const gotoTeacherDetails = () => {
-        navigation.navigate('Teacher')
-    }
+    
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
             <StatusBar barStyle={"light-content"} backgroundColor={'#72CCEC'}/>
@@ -124,10 +122,21 @@ const Home = ({navigation}) => {
                         keyExtractor={(item) => item.id.toString() }
                         data={teacher}
                         renderItem={({ item }) => (
-                            <TeacherPic 
-                            name={item.name}
-                            img={item.picture}
-                            gotoTeacherDetails={gotoTeacherDetails}/>
+                            <View style={{width : 150, marginRight : 10}}>
+                                <TouchableOpacity style={{width : 150, height : 150}} onPress={() => navigation.navigate('Teacher', {item})}>
+                                    <Image 
+                                        borderRadius={150}
+                                        style={{
+                                            width : 150,
+                                            height : 200,
+                                            resizeMode : "cover",
+                                            flex : 1
+                                        }}
+                                            source={item.picture}
+                                    />                       
+                                    <Text style={{color : '#72CCEC', fontSize : 15, fontWeight : "bold", alignSelf : "center", marginTop : 10}}>{item.name}</Text>
+                                </TouchableOpacity>
+                            </View>
                         )}
                         />
         

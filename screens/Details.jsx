@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { 
     StyleSheet, 
     Text, 
@@ -6,14 +6,15 @@ import {
     ImageBackground,
     TouchableOpacity,
     FlatList,
-    ScrollView
+    ScrollView,
+    Image
 } from 'react-native'
 import { SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
 
-    const { cours, setFavoris } = useContext(ClassContext)
+    const { cours, teacher, setFavoris } = useContext(ClassContext)
     const {item} = route.params
     return (
         <ScrollView>
@@ -27,6 +28,16 @@ const Details = ({navigation, route}) => {
                <Text style={styles.classTitle}>{item.teacher}</Text>
            </ImageBackground>
            <View style={styles.detailsContainer}>
+               <View style={styles.teacherProfilContainer}>
+                   <Image 
+                        borderRadius={90}
+                        style={styles.teacherPic}
+                        source={teacher[0].picture}
+                   />
+                   <TouchableOpacity style={styles.profilBtn}>
+                       <Text style={styles.profilBtnText}>Voir le profil</Text>
+                   </TouchableOpacity>
+               </View>
                <View>
                    <Text style={styles.studioName}>{item.studio}</Text>
                    <Text style={styles.stuioLocation}>Adresse du studio</Text>
@@ -54,8 +65,7 @@ const Details = ({navigation, route}) => {
                         title={item.title}
                         teacher={item.teacher}
                         studio={item.studio}
-                        img={item.img}
-                
+                        img={item.img}              
                          />
                          </TouchableOpacity>
                    )}
@@ -104,7 +114,29 @@ const styles = StyleSheet.create({
         fontSize : 15,
         color : '#7E8081',
         marginBottom : 20,
+    },
+    teacherPic : {
+        width : 90,
+        height : 90
+    },
+    teacherProfilContainer : {
+        alignItems : "center",
+        alignSelf : "flex-end",
+        marginTop : -80,
+        marginRight : 20
+    },
+    profilBtn : {
+        backgroundColor : '#14AADF',
+        padding : 4,
+        marginTop : 5,
+        borderRadius : 10
+    },
+    profilBtnText : {
+        color : 'white',
+        fontSize : 12,
+      
     }
+
 
 
 })

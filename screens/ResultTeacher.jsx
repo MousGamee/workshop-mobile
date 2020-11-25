@@ -5,7 +5,7 @@ import { ClassContext } from '../context/ClassContext'
 
 const WIDTH = Dimensions.get('window').width
 
-const ResultTeacher = ({navigation}) => {
+const ResultTeacher = ({ navigation }) => {
     
     const { teacher } = useContext(ClassContext)
     return (
@@ -14,7 +14,7 @@ const ResultTeacher = ({navigation}) => {
            data={teacher}
            keyExtractor={item => item.id.toString()}
            renderItem={( { item, i }) => (
-            <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Teacher')}>
+            <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Teacher', {item})}>
                 <Image 
                 borderRadius={90}
                 style={styles.teacherImg}
