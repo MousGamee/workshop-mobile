@@ -5,6 +5,7 @@ import {
     View,
     ImageBackground,
     TouchableOpacity,
+    FlatList,
     ScrollView
 } from 'react-native'
 import { SlideItem2 } from '../components/Category'
@@ -12,26 +13,26 @@ import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
 
-    const { img, cours, setFavoris } = useContext(ClassContext)
-    const {cour} = route.params
+    const { cours, setFavoris } = useContext(ClassContext)
+    const {item} = route.params
     return (
         <ScrollView>
             <View style={{backgroundColor : 'white', flex : 1}}>
             <ImageBackground
                 style={styles.image}
-                source={img.id[cour.id]}
+                source={item.img}
                 imageStyle={{borderBottomLeftRadius : 30, borderBottomRightRadius : 30}}
             >
-               <Text style={styles.tagLine}> {cour.title}</Text>
-               <Text style={styles.classTitle}>{cour.teacher}</Text>
+               <Text style={styles.tagLine}> {item.title}</Text>
+               <Text style={styles.classTitle}>{item.teacher}</Text>
            </ImageBackground>
            <View style={styles.detailsContainer}>
                <View>
-                   <Text style={styles.studioName}>{cour.studio}</Text>
+                   <Text style={styles.studioName}>{item.studio}</Text>
                    <Text style={styles.stuioLocation}>Adresse du studio</Text>
                </View>
                <View>
-                   <Text>{cour.description}</Text>
+                   <Text>{item.description}</Text>
                </View>
            <View style={{
                     marginTop : 30
@@ -41,24 +42,24 @@ const Details = ({navigation, route}) => {
                         fontSize : 20,
                         marginBottom : 10,
                     }}>Recommandé pour vous</Text>
-                    <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    >
-                        {
-                            cours.map((cour,i) => (
-                                <TouchableOpacity key={i} onPress={() => navigation.push('Details', {cour})}>
-                                <SlideItem2 
-                                    key={i}
-                                    title={cour.title}
-                                    teacher={cour.teacher}
-                                    studio={cour.studio}
-                                    img={img.id[i]}
-                                />
-                                </TouchableOpacity>
-                            ))
-                        }
-                    </ScrollView>
+                   <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={cours}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item, i }) => (
+                    <TouchableOpacity                   
+                    onPress={() => navigation.navigate('Details', {item})}>
+                      <SlideItem2  
+                        title={item.title}
+                        teacher={item.teacher}
+                        studio={item.studio}
+                        img={item.img}
+                
+                         />
+                         </TouchableOpacity>
+                   )}
+                   />
                 </View>  
                 </View>
         </View>
