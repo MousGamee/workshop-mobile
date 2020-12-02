@@ -131,7 +131,7 @@ export const classItems = [
     {
       id : 0,
       title : 'Just debout',
-      img : require('./assets/events/nazar.jpg'),
-      imgCover :   require('./assets/events/nazar.jpg')
+      img : require('./assets/teacher/nazar.jpg'),
+      imgCover :   require('./assets/teacher/nazar.jpg')
     }
   ]
