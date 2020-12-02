@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 const WIDTH = Dimensions.get('window').width
 
-const Card = ({title, teacher, studio, img}) => {
+const Card = ({title, teacher, studio, img, genre}) => {
     return (    
         <View style={styles.searchCardContainer}>
             <View style={styles.imageContainer}>
@@ -23,6 +23,7 @@ const Card = ({title, teacher, studio, img}) => {
                 <Text style={styles.classTitle}>{title}</Text>
                 <Text style={styles.classTeacher}>{teacher}</Text>
                 <Text style={styles.classStudio}>{studio}</Text>
+                <Text>{genre}</Text>
             </View>
     </View>
     )

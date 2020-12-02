@@ -7,9 +7,13 @@ const AuthContextProvider = props => {
     const [islogin, setIsLogin] = useState(false)
     const [users, setUsers] = useState(user)
 
-    const signIn = () => {  
-        setIsLogin(!islogin)  
-    }
+    const signIn = (usr, mdp) => {  
+        if(users.userName.toLowerCase() === usr.toLowerCase() && users.password === mdp){
+            setIsLogin(!islogin)
+            }else if(users.userName.toLowerCase() != usr.toLowerCase()){
+                alert('identifiant incorrect')
+            }else if(users.password != mdp) alert('mot de passe incorect')
+        }
 
     const logOut = () => {
         setIsLogin(!islogin)

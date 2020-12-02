@@ -122,36 +122,23 @@ const Home = ({navigation}) => {
                         keyExtractor={(item) => item.id.toString() }
                         data={teacher}
                         renderItem={({ item }) => (
-                            <View style={{width : 150, marginRight : 10}}>
-                                <TouchableOpacity style={{width : 150, height : 150}} onPress={() => navigation.navigate('Teacher', {item})}>
-                                    <Image 
-                                        borderRadius={150}
-                                        style={{
-                                            width : 150,
-                                            height : 200,
-                                            resizeMode : "cover",
-                                            flex : 1
-                                        }}
-                                            source={item.picture}
-                                    />                       
-                                    <Text style={{color : '#72CCEC', fontSize : 15, fontWeight : "bold", alignSelf : "center", marginTop : 10}}>{item.name}</Text>
-                                </TouchableOpacity>
-                            </View>
+                            <TouchableOpacity style={{width : 150, height : 200, marginLeft : 10}} onPress={() => navigation.navigate('Teacher', {item})}>
+                                <View style={{width : '100%', height : 150, borderRadius : 150}}>
+                                <Image 
+                                        style={{borderRadius : 150, width : null, resizeMode : "cover",flex : 1}}
+                                        source={item.picture}
+                                    /> 
+                                </View>
+                                <Text style={{color : '#72CCEC', fontSize : 15, fontWeight : "bold", alignSelf : "center", marginTop : 10}}>{item.name}</Text>
+                            </TouchableOpacity>
                         )}
                         />
         
                 </View>
 
                 {/** recommandation */}
-                <View style={{
-                    marginTop : 30,
-                    paddingBottom : 20
-                }}>
-                    <Text style={{
-                        color : '#7E8081',
-                        fontSize : 20,
-                        marginBottom : 10,
-                    }}>Parce que vous aimez le <Text style={{color : '#72CCEC'}}>Hip Hop</Text></Text>
+                <View style={{ paddingBottom : 20}}>
+                    <Text style={{color : '#7E8081',fontSize : 20, marginBottom : 10,}}>Parce que vous aimez le <Text style={{color : '#72CCEC'}}>Hip Hop</Text></Text>
                     <FlatList
                         horizontal
                         showsHorizontalScrollIndicator={false}
@@ -164,15 +151,13 @@ const Home = ({navigation}) => {
                         title={item.title}
                         teacher={item.teacher}
                         studio={item.studio}
-                        img={item.img}
-                
+                        img={item.img}                
                          />
                          </TouchableOpacity>
                    )}
                    />
                 </View>   
-
-                </ScrollView>
+             </ScrollView>
         </View>
     )
 }

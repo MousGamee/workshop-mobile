@@ -9,6 +9,7 @@ import {
     ScrollView,
     Image
 } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import { SlideItem2 } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 
@@ -24,9 +25,20 @@ const Details = ({navigation, route}) => {
                 source={item.img}
                 imageStyle={{borderBottomLeftRadius : 30, borderBottomRightRadius : 30}}
             >
-               <Text style={styles.tagLine}> {item.title}</Text>
-               <Text style={styles.classTitle}>{item.teacher}</Text>
+               
+               <LinearGradient
+                        colors={['rgba(0, 0, 0, 0)', 'white']}
+                        style={{
+                        height: 250,
+                        width : '100%',
+                        position: 'absolute',
+                        bottom: 0,
+                        }}
+            />  
+            <Text style={styles.tagLine}> {item.title}</Text>
+            <Text style={styles.classTitle}>{item.teacher}</Text>
            </ImageBackground>
+           
            <View style={styles.detailsContainer}>
                <View style={styles.teacherProfilContainer}>
                    <Image 
@@ -45,36 +57,35 @@ const Details = ({navigation, route}) => {
                <View>
                    <Text>{item.description}</Text>
                </View>
-           <View style={{
-                    marginTop : 30
-                }}>
-                    <Text style={{
-                        color : '#7E8081',
-                        fontSize : 20,
-                        marginBottom : 10,
-                    }}>Recommandé pour vous</Text>
-                   <FlatList
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        data={cours}
-                        keyExtractor={item => item.id.toString()}
-                        renderItem={({ item, i }) => (
-                    <TouchableOpacity                   
-                    onPress={() => navigation.navigate('Details', {item})}>
-                      <SlideItem2  
-                        title={item.title}
-                        teacher={item.teacher}
-                        studio={item.studio}
-                        img={item.img}              
-                         />
-                         </TouchableOpacity>
-                   )}
-                   />
+               <View style={{width : '100%', height : 200, marginTop : 20}}>
+                 <Image 
+                 source={require('../assets/googlemap.png')}
+                 style={{width : null, height : null, resizeMode : 'cover', flex : 1}}
+                   /> 
+               </View>
+                <View style={{ marginTop : 30}}>
+                            <Text style={{color : '#7E8081',fontSize : 20,marginBottom : 10,}}>Recommandé pour vous</Text>
+                        <FlatList
+                                horizontal
+                                showsHorizontalScrollIndicator={false}
+                                data={cours}
+                                keyExtractor={item => item.id.toString()}
+                                renderItem={({ item, i }) => (
+                            <TouchableOpacity                   
+                            onPress={() => navigation.push('Details', {item})}>
+                            <SlideItem2  
+                                title={item.title}
+                                teacher={item.teacher}
+                                studio={item.studio}
+                                img={item.img}              
+                                />
+                                </TouchableOpacity>
+                        )}
+                        />
                 </View>  
                 </View>
         </View>
         </ScrollView>
-
     )
 }
 
@@ -87,14 +98,14 @@ const styles = StyleSheet.create({
         justifyContent : "flex-end"
     },
     tagLine : {
-        color : 'white',
+        color : '#14AADF',
         fontSize : 16,
         fontWeight : 'bold',
         paddingHorizontal : 14,
         marginVertical : 6
     },
     classTitle : {
-        color : 'white',
+        color : '#7E8081',
         fontSize : 24,
         fontWeight : 'bold',
         paddingHorizontal : 14,

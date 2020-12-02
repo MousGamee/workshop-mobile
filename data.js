@@ -8,7 +8,7 @@ export const classItems = [
       price: "10€",
       studio : 'Studio Bleu',
       img : require('./assets/image1.jpg'),
-      isFavoris : true
+      genre : [1,2,3]
     },
     {
       id : 1,
@@ -19,7 +19,7 @@ export const classItems = [
       price: "15€",
       img : require('./assets/image2.jpg'),
       studio : 'Studio Bleu',
-      isFavoris : true
+      genre : [4]
 
     },
     {
@@ -31,7 +31,7 @@ export const classItems = [
       studio : 'Studio harmonic',
       img : require('./assets/image3.jpg'),
       price: "20€",
-      isFavoris : true
+      genre : [4]
     },
     {
       id : 3,
@@ -42,7 +42,7 @@ export const classItems = [
       studio : 'LAX Studio',
       img : require('./assets/image4.jpg'),
       price: "5€",
-      isFavoris : false
+      genre : [3]
     },
   
     {
@@ -54,7 +54,7 @@ export const classItems = [
       studio : 'Studio Massaro',
       img : require('./assets/image5.jpg'),
       price: "14€",
-      isFavoris : false
+      genre : [4,2]
     },
   
     {
@@ -66,7 +66,7 @@ export const classItems = [
       studio : 'Studio MRG',
       img : require('./assets/image6.jpg'),
       price: "14€",
-      isFavoris : false
+      genre : [1,2,5]
     },
     {
       id : 6,
@@ -77,61 +77,95 @@ export const classItems = [
       studio : 'Studio MRG',
       img : require('./assets/image2.jpg'),
       price: "14€",
-      isFavoris : false
+      genre : [2]
     }
   ];
   
-
   export const user = {
     name : 'Anna',
     lastName : 'MONTANA',
-    email : 'samira@gmail.com'
+    email : 'samira@gmail.com',
+    userName : 'moussa',
+    password : 'moussa'
   }
 
+  
   export const teachers = [
     {
       id : 0,
       name : 'Jerky',
       picture : require('./assets/teacher/jerky.jpg') ,
-      style : 'Hip Hop'
+      style : 'Hip Hop',
+      genre : [1,2]
     },
     {
       id : 1,
       name : 'Yacine',
       picture : require('./assets/teacher/yacine.jpg'),
-      style : 'Hip Hop'
+      style : 'Hip Hop',
+      genre : [1,5]
     },
     {
       id : 2,
       name : 'Dante',
       picture : require('./assets/teacher/dante.jpg'),
-      style : 'Break'
+      style : 'Break',
+      genre : [3]
     },
     {
       id : 3,
       name : 'Lionel',
       picture : require('./assets/teacher/lionel.jpg'),
-      style : 'Afro'
+      style : 'Afro',
+      genre : [2]
     },
     {
       id : 4,
       name : 'Carmel',
       picture : require('./assets/teacher/carmel.jpg'),
-      style : 'House'
+      style : 'House',
+      genre : [1, 4]
     },
     {
       id : 5,
       name : 'Nazar',
       picture : require('./assets/teacher/nazar.jpg'),
-      style : 'House'
+      style : 'House',
+      genre : [5]
     }
   ]
 
   export const events = [
     {
       id : 0,
-      title : 'Just debout',
-      img : require('./assets/teacher/nazar.jpg'),
-      imgCover :   require('./assets/teacher/nazar.jpg')
+      name : 'Afro Nation',
+      picture : require('./assets/events/afroNation.jpg'),
+      bkg_picture : require('./assets/events/afroNationCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
+      
+    },
+    {
+      id : 1,
+      name : 'All 4 House',
+      picture : require('./assets/events/all4house.jpg'),
+      bkg_picture : require('./assets/events/all4houseCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
+      
+    },
+    {
+      id : 2,
+      name : 'Just Debout',
+      picture : require('./assets/events/justdebout.jpg'),
+      bkg_picture : require('./assets/events/justdeboutCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
+      
     }
   ]
+
+  export const genres = {
+    1 : 'hip - Hop',
+    2 : 'Afro',
+    3 : 'House',
+    4 : 'Break',
+    5 : 'Danse Classique',
+  }

@@ -1,17 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState,  } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native'
 import Card from '../components/Card'
 import { ClassContext } from '../context/ClassContext'
+import { genres }  from '../data'
 
 const ResultClass = ({navigation}) => {
     const { cours, textSearch } = useContext(ClassContext)
-
+    const [apiGenre, setApiGenre ] = useState(genres)
+  console.log(cours)
     return (
         <View style={styles.container}>
             <Text>{textSearch}</Text>
                 <FlatList 
                     keyExtractor={item => item.id.toString()}
                     data={cours}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item, i }) => (
                     <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>
                         <Card  
@@ -19,6 +22,7 @@ const ResultClass = ({navigation}) => {
                             teacher={item.teacher}
                             studio={item.studio}
                             img={item.img}
+                            genre={item.genre.map(g => apiGenre[g])}
                         />
                     </TouchableOpacity>
                     )}

@@ -4,28 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const TeacherReview = () => {
     return (
         <View style={styles.container}>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
-            <Text> review </Text>
+            
         </View>
     )
 }
