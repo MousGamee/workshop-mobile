@@ -125,3 +125,12 @@ export const classItems = [
       style : 'House'
     }
   ]
+
+  export const events = [
+    {
+      id : 0,
+      title : 'Just debout',
+      img : require('./assets/events/nazar.jpg'),
+      imgCover :   require('./assets/events/nazar.jpg')
+    }
+  ]

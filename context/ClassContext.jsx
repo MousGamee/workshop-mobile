@@ -4,6 +4,7 @@ import { classItems, teachers } from '../data'
 export const ClassContext = createContext()
 
 const ClassContextProvider = props => {
+    //data
     const [cours, setCours] = useState(classItems)
     const [coursBackup, setCoursBackup] = useState([])
     const [teacher, setTeacher] = useState (teachers)
