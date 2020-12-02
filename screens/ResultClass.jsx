@@ -12,6 +12,7 @@ const ResultClass = ({navigation}) => {
                 <FlatList 
                     keyExtractor={item => item.id.toString()}
                     data={cours}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item, i }) => (
                     <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>
                         <Card  
