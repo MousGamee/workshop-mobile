@@ -13,7 +13,6 @@ const Favoris = () => {
         </View>
     )
 }
-
 export default Favoris
 
 const styles = StyleSheet.create({

@@ -128,6 +128,27 @@ export const classItems = [
 
   export const events = [
     {
+      id : 0,
+      name : 'Afro Nation',
+      picture : require('./assets/events/afroNation.jpg'),
+      bkg_picture : require('./assets/events/afroNationCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
+      
+    },
+    {
+      id : 1,
+      name : 'All 4 House',
+      picture : require('./assets/events/all4house.jpg'),
+      bkg_picture : require('./assets/events/all4houseCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
+      
+    },
+    {
+      id : 2,
+      name : 'Just Debout',
+      picture : require('./assets/events/justdebout.jpg'),
+      bkg_picture : require('./assets/events/justdeboutCover.jpg'),
+      overview : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi sed mollitia nobis, reprehenderit consectetur tenetur voluptatem iusto debitis quaerat deserunt dolor consequuntur eaque ratione hic! Ea quos dolor tempora numquam?',
       
     }
   ]

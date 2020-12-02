@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { classItems, teachers } from '../data'
+import { classItems, teachers, events } from '../data'
 
 export const ClassContext = createContext()
 
@@ -10,6 +10,7 @@ const ClassContextProvider = props => {
     const [teacher, setTeacher] = useState (teachers)
     const [isSearch, setIsSearch] = useState (true)
     const [textSearch, setTextSearch] = useState('')
+    const [event, setEvent] = useState(events)
 
     // mettre dans les favoris
     const setFavoris = (id) => { 
@@ -28,9 +29,10 @@ const ClassContextProvider = props => {
     const handleSearch = () => {
         
     }
+
     return(
         <ClassContext.Provider value={{
-            cours, coursBackup, teacher, textSearch, setTextSearch, setFavoris, search, isSearch
+            cours, coursBackup, teacher, textSearch, setTextSearch, setFavoris, search, isSearch, event
         }}>
             {props.children}
         </ClassContext.Provider>

@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const HomeStack = createStackNavigator()
 import { ClassContext } from '../context/ClassContext'
 import TeacherDetails from '../screens/TeacherDetails';
+import EventDetail from '../screens/EventDetail';
 
 const WIDTH = Dimensions.get('window').width
 
@@ -67,6 +68,14 @@ const HomeStackPage = ({ navigation }) => {
         headerTransparent : true, 
         headerTintColor : '#72CCEC',
       }}/>
+
+      <HomeStack.Screen name="EventDetail" component={EventDetail} options={{
+        headerTitle : false,
+        headerBackTitleVisible : false,
+        headerTransparent : true,
+        headerTintColor : '#FFFFFF',
+      }}/>
+      
     </HomeStack.Navigator>
     )
 }
