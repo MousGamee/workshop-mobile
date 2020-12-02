@@ -1,23 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react'
 import { 
     View, 
-    Text,  
-    ImageBackground, 
-    StyleSheet, 
+    Text,
+    SafeAreaView, 
+    StatusBar, 
+    StyleSheet,
+    ImageBackground,
     Image,
-    TextInput,
     Dimensions,
-    TouchableOpacity,
+    TextInput,
+    TouchableOpacity
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthContext';
 
 const { width : WIDTH } = Dimensions.get('window')
 
-const SignIn = ({ navigation }) => {
-
+const SignUp = ({ navigation }) => {
     const { signIn } = useContext(AuthContext);
 
     return (
@@ -32,13 +31,9 @@ const SignIn = ({ navigation }) => {
                             source={require('../assets/Workshop.png')}
                             />
                     </View>     
-                    <Text style={{color : 'white', fontSize : 20, fontWeight : "bold"}}> Connection </Text>      
+                    <Text style={{color : 'white', fontSize : 20, fontWeight : "bold"}}> Inscription </Text>      
                     <View style={{marginTop : 30}}>
-                        <Ionicons 
-                        style={styles.inputIcon}
-                        name={'ios-person'} 
-                        size={28} 
-                        color={'rgba(0, 0, 0, .5)'}/>
+                        
                         <TextInput 
                             style={styles.input}
                             placeholder={'User name'}
@@ -46,12 +41,18 @@ const SignIn = ({ navigation }) => {
                             underlineColorAndroid='transparent'
                         />
                     </View>
+
                     <View style={{marginTop : 10}}>
-                        <Ionicons 
-                        style={styles.inputIcon}
-                        name={'ios-lock'} 
-                        size={28} 
-                        color={'rgba(0, 0, 0, .5)'}/>
+                        
+                        <TextInput 
+                            style={styles.input}
+                            placeholder={'Email'}
+                            placeholderTextColor={'lightgrey'}
+                            underlineColorAndroid='transparent'
+                        />
+                    </View>
+
+                    <View style={{marginTop : 10}}>
                         <TextInput 
                             style={styles.input}
                             placeholder={'Password'}
@@ -59,24 +60,28 @@ const SignIn = ({ navigation }) => {
                             placeholderTextColor={'lightgrey'}
                             underlineColorAndroid='transparent'
                         />                   
-                    <TouchableOpacity style={styles.btnEyes}>
-                        <Ionicons 
-                        name={'ios-eye'} 
-                        size={20}
-                        color={'rgba(0, 0, 0, .7)'}
-                         /> 
-                    </TouchableOpacity>
                     </View>
+                    <View style={{marginTop : 10}}>
+                        
+                        <TextInput 
+                            style={styles.input}
+                            placeholder={'Confirm Password'}
+                            secureTextEntry={true}
+                            placeholderTextColor={'lightgrey'}
+                            underlineColorAndroid='transparent'
+                        />                                       
+                    </View>
+
                 <TouchableOpacity 
                     style={styles.btnLogin}
                     onPress={() => signIn()}
                 >
-                    <Text style={styles.btnLoginText}>Login</Text>                       
+                    <Text style={styles.btnLoginText}>S'inscrire</Text>                       
                 </TouchableOpacity>  
                 <View style={{flexDirection : 'row', marginTop : 25}}>
-                    <Text>Pas de compte ? </Text> 
-                    <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                        <Text style={{color : 'white', fontWeight : "bold"}}>S'inscrire</Text>
+                    <Text>Deja un compte? </Text> 
+                    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                        <Text style={{color : 'white', fontWeight : "bold"}}> S'inscrire</Text>
                     </TouchableOpacity> 
                 </View>
                
@@ -84,8 +89,8 @@ const SignIn = ({ navigation }) => {
         </>
     )
 }
+export default SignUp
 
-export default SignIn
 
 const styles = StyleSheet.create({
     loginBkg : {

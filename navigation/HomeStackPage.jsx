@@ -10,6 +10,7 @@ import { ClassContext } from '../context/ClassContext'
 import TeacherDetails from '../screens/TeacherDetails';
 
 const WIDTH = Dimensions.get('window').width
+
 const HomeStackPage = ({ navigation }) => {
   const { search, textSearch, setTextSearch } = useContext(ClassContext)
 

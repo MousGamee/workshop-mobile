@@ -127,8 +127,8 @@ const Home = ({navigation}) => {
                                     <Image 
                                         borderRadius={150}
                                         style={{
-                                            width : 150,
-                                            height : 200,
+                                            width : null,
+                                            height : null,
                                             resizeMode : "cover",
                                             flex : 1
                                         }}

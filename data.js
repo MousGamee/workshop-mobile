@@ -81,7 +81,6 @@ export const classItems = [
     }
   ];
   
-
   export const user = {
     name : 'Anna',
     lastName : 'MONTANA',
