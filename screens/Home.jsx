@@ -35,7 +35,7 @@ const Home = ({navigation}) => {
 
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
-            <StatusBar barStyle={"light-content"} backgroundColor={'#72cbec'} hidden />
+            <StatusBar barStyle={"light-content"} backgroundColor={'#72cbec'} />
             <ScrollView
              style={{flex:1}}
              onScroll={(e) => {
@@ -56,7 +56,7 @@ const Home = ({navigation}) => {
                         translateY : translateY
                         }]
                     }}>
-                        <Animated.View style={{width : 80, height : 80 }}>
+                        <Animated.View style={{width : 80, height : 80, paddingTop : 10 }}>
                             <Image
                                 style={{ resizeMode : "contain", flex : 1, width : null, height : null }}
                                 source={require('../assets/logo-w.png')}
@@ -68,13 +68,7 @@ const Home = ({navigation}) => {
                     </Animated.View>
                     <LinearGradient
                         colors={['rgba(0, 0, 0, 0)', 'white']}
-                        style={{
-                        height: 150,
-                        width : '100%',
-                        position: 'absolute',
-                        bottom: 0,
-                            }}
-                    />  
+                        style={{ height: 150, width : '100%', position: 'absolute', bottom: 0 }}/>  
                     <View style={{alignItems : "center", marginTop : 210}}>
                         <Image 
                             source={require('../assets/events/afroNationLogo.png')}

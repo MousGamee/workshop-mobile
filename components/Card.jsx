@@ -14,7 +14,7 @@ const Card = ({title, teacher, studio, img, genre}) => {
             <View style={styles.imageContainer}>
                 <Image 
                 borderBottomLeftRadius={20}
-                borderTopLeftRadius={20}
+                borderRadius={20}
                     style={styles.image}
                     source={img}
                 />
@@ -45,10 +45,6 @@ const styles = StyleSheet.create({
         width : WIDTH - 20,
         height : 170,
         marginBottom : 10,
-        elevation : 2,
-        shadowOpacity : 2, 
-        borderTopLeftRadius : 20,
-        borderBottomLeftRadius : 20
     },
     imageContainer : {
         width : '40%',
@@ -75,7 +71,6 @@ const styles = StyleSheet.create({
     genres: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
         marginVertical: 4,
       },
       genre: {

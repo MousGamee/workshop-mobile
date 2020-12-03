@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { 
     StyleSheet, 
     Text, 
@@ -9,14 +9,18 @@ import {
     ScrollView,
     Image
 } from 'react-native'
+import { genres }  from '../data'
 import { LinearGradient } from 'expo-linear-gradient'
 import { SlideItem2 } from '../components/Category'
+import * as Animatable from 'react-native-animatable'
 import { ClassContext } from '../context/ClassContext';
 
 const Details = ({navigation, route}) => {
 
     const { cours, teacher, setFavoris } = useContext(ClassContext)
+    const [apiGenre, setApiGener ] = useState(genres)
     const {item} = route.params
+    console.log(item)
     return (
         <ScrollView>
             <View style={{backgroundColor : 'white', flex : 1}}>
@@ -34,11 +38,22 @@ const Details = ({navigation, route}) => {
                         bottom: 0,
                         }}
                 />  
-            <Text style={styles.tagLine}> {item.title}</Text>
-            <Text style={styles.classTitle}>{item.teacher}</Text>
+                <Animatable.View animation='fadeInRight' delay={200} duration={500}>  
+                    <Text style={styles.tagLine}> {item.title}</Text>
+                    <Text style={styles.classTitle}>{item.teacher}</Text>
+                    <View style={styles.genres}>
+                        {item.genre.map(( g ) => {
+                            return (
+                            <View key={g} style={styles.genre}>
+                                <Text style={{fontSize: 9, opacity: 0.4, color : '#000000'}}>{ apiGenre[g] }</Text>
+                            </View>
+                            );
+                        })}
+                    </View>
+                </Animatable.View>
            </ImageBackground>
            
-           <View style={styles.detailsContainer}>
+           <Animatable.View style={styles.detailsContainer} animation='fadeInLeft' delay={400} duration={500}>
                <View style={styles.teacherProfilContainer}>
                    <Image 
                         borderRadius={90}
@@ -82,7 +97,7 @@ const Details = ({navigation, route}) => {
                         )}
                         />
                 </View>  
-                </View>
+                </Animatable.View>
         </View>
         </ScrollView>
     )
@@ -108,7 +123,7 @@ const styles = StyleSheet.create({
         fontSize : 24,
         fontWeight : 'bold',
         paddingHorizontal : 14,
-        marginBottom : 30
+        marginBottom : 10
     },
     detailsContainer : {
         paddingHorizontal : 10,
@@ -145,7 +160,21 @@ const styles = StyleSheet.create({
         color : 'white',
         fontSize : 12,
       
-    }
+    },
+    genres: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginLeft : 15,
+        marginVertical: 4,
+      },
+      genre: {
+        paddingHorizontal: 6,
+        paddingVertical: 2,
+        borderWidth: 1,
+        borderRadius: 14,
+        borderColor: '#ccc',
+        marginRight: 4,
+      },
 
 
 

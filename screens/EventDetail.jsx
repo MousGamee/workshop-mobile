@@ -12,13 +12,13 @@ const EventDetail = ({ navigation, route}) => {
                 source={item.bkg_picture}
             >
             <LinearGradient
-                        colors={['rgba(0, 0, 0, 0)', 'white']}
-                        style={{
-                        height: 100,
-                        width : '100%',
-                        position: 'absolute',
-                        bottom: 0,
-                        }}
+                colors={['rgba(0, 0, 0, 0)', 'white']}
+                style={{
+                height: 100,
+                width : '100%',
+                position: 'absolute',
+                bottom: 0,
+                }}
             />  
             <View style={{justifyContent : 'center',  flexDirection : "row", marginTop : 100}}>
                 <Animatable.View 
