@@ -8,7 +8,8 @@ import {
      FlatList,
      StyleSheet,
      Image,
-     ImageBackground
+     ImageBackground,
+     Animated
      } 
 from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,26 +26,46 @@ const Home = ({navigation}) => {
     const { users } = useContext(AuthContext)
     const [isAdd, setIsAdd] = useState(false)
 
+    const scrollY = new Animated.Value(0)
+    const diffClamp = Animated.diffClamp(scrollY, 0, 80)
+    const translateY = diffClamp.interpolate({
+        inputRange : [0, 80],
+        outputRange : [0 , -80]
+    })
+
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
-            <StatusBar barStyle={"light-content"} backgroundColor={'#72CCEC'}/>
+            <StatusBar barStyle={"light-content"} backgroundColor={'#72cbec'} hidden />
             <ScrollView
              style={{flex:1}}
+             onScroll={(e) => {
+                 scrollY.setValue(e.nativeEvent.contentOffset.y)
+             }}
                 >
                 <ImageBackground 
                 source={require('../assets/events/afroNationCover.jpg')}
                 style={{width : '100%', height : 450}}>
-                    <View style={{width : '100%', height : 70, flexDirection : "row", justifyContent : "space-between", alignItems : 'center', paddingTop : 15}}>
-                        <View style={{width : 80, height : 80 }}>
+                    <Animated.View 
+                    style={{width : '100%', 
+                    height : 80, 
+                    flexDirection : "row", 
+                    justifyContent : "space-between", 
+                    alignItems : 'center', 
+                    paddingTop : 15,
+                    transform : [{
+                        translateY : translateY
+                        }]
+                    }}>
+                        <Animated.View style={{width : 80, height : 80 }}>
                             <Image
                                 style={{ resizeMode : "contain", flex : 1, width : null, height : null }}
                                 source={require('../assets/logo-w.png')}
                             />
-                        </View>
+                        </Animated.View>
                         <Ionicons 
                                 name='ios-search' size={30} color='#ffffff' 
                                 style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
-                    </View>
+                    </Animated.View>
                     <LinearGradient
                         colors={['rgba(0, 0, 0, 0)', 'white']}
                         style={{
@@ -54,7 +75,7 @@ const Home = ({navigation}) => {
                         bottom: 0,
                             }}
                     />  
-                    <View style={{alignItems : "center", marginTop : 220}}>
+                    <View style={{alignItems : "center", marginTop : 210}}>
                         <Image 
                             source={require('../assets/events/afroNationLogo.png')}
                             style={{width : 100, height : 100}}
