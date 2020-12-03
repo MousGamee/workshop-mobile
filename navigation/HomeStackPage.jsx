@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
-import { Image, TextInput, StyleSheet, Dimensions } from 'react-native'
+import { Image, TextInput, StyleSheet, Dimensions, View } from 'react-native'
 import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from '../screens/Home'
 import Details from '../screens/Details'
 import Search from '../screens/Search'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-const HomeStack = createStackNavigator()
 import { ClassContext } from '../context/ClassContext'
 import TeacherDetails from '../screens/TeacherDetails';
 import EventDetail from '../screens/EventDetail';
 
 const WIDTH = Dimensions.get('window').width
+
+const HomeStack = createStackNavigator()
 
 const HomeStackPage = ({ navigation }) => {
   const { search, textSearch, setTextSearch } = useContext(ClassContext)
@@ -28,19 +29,26 @@ const HomeStackPage = ({ navigation }) => {
       <HomeStack.Screen name="Home" component={Home} 
         options={{
           headerTitle : false,
-          headerStyle : {
-            backgroundColor : '#72CCEC',
-          },
+          headerTransparent : true,
+          // headerStyle : {
+          //   backgroundColor : '#72CCEC',
+          // },
           headerLeft : () => (
-            <Image
-                style={{width : 100, height : 50, marginLeft : 20, marginTop :10 }}
-                source={require('../assets/Workshop.png')}
+            <View style={{width : 80, height : 80, marginLeft : 20, marginTop :35,}}>
+              <Image
+                style={{ resizeMode : "contain", flex : 1, width : null, height : null }}
+                source={require('../assets/logo-w.png')}
             />
+            </View>
+            
           ),
           headerRight : () => (
-            <Ionicons name='ios-search' size={25} color='#ffffff' style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
+            <Ionicons 
+            name='ios-search' size={25} color='#ffffff' 
+            style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
           ) 
         }}/>
+
       <HomeStack.Screen name="Details" component={Details} options={{
         headerTitle : false,
         headerBackTitleVisible : false,

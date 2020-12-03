@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { Animated } from 'react-native'
 import { classItems, teachers, events } from '../data'
 
 export const ClassContext = createContext()
@@ -22,7 +23,6 @@ const ClassContextProvider = props => {
         console.log(textSearch)
         setTextSearch(text)
         // afficher le resultat en fonction de la recherche
-       
     }
 
     //changement de laffichage seulement si une recherche est en cours
@@ -32,7 +32,7 @@ const ClassContextProvider = props => {
 
     return(
         <ClassContext.Provider value={{
-            cours, coursBackup, teacher, textSearch, setTextSearch, setFavoris, search, isSearch, event
+            cours, coursBackup, teacher, textSearch, setTextSearch, setFavoris, search, isSearch, event,
         }}>
             {props.children}
         </ClassContext.Provider>

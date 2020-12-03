@@ -23,7 +23,15 @@ const Card = ({title, teacher, studio, img, genre}) => {
                 <Text style={styles.classTitle}>{title}</Text>
                 <Text style={styles.classTeacher}>{teacher}</Text>
                 <Text style={styles.classStudio}>{studio}</Text>
-                <Text>{genre}</Text>
+                <View style={styles.genres}>
+                    {genre.map((g, i) => {
+                        return (
+                        <View key={g} style={styles.genre}>
+                            <Text style={{fontSize: 9, opacity: 0.4, color : '#000000'}}>{g}</Text>
+                        </View>
+                        );
+                    })}
+                </View>
             </View>
     </View>
     )
@@ -63,5 +71,19 @@ const styles = StyleSheet.create({
     },
     classTitle : {
         color : "#72CCEC"
-    }
+    },
+    genres: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginVertical: 4,
+      },
+      genre: {
+        paddingHorizontal: 6,
+        paddingVertical: 2,
+        borderWidth: 1,
+        borderRadius: 14,
+        borderColor: '#ccc',
+        marginRight: 4,
+      },
 })

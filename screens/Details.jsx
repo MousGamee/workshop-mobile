@@ -25,7 +25,6 @@ const Details = ({navigation, route}) => {
                 source={item.img}
                 imageStyle={{borderBottomLeftRadius : 30, borderBottomRightRadius : 30}}
             >
-               
                <LinearGradient
                         colors={['rgba(0, 0, 0, 0)', 'white']}
                         style={{
@@ -34,7 +33,7 @@ const Details = ({navigation, route}) => {
                         position: 'absolute',
                         bottom: 0,
                         }}
-            />  
+                />  
             <Text style={styles.tagLine}> {item.title}</Text>
             <Text style={styles.classTitle}>{item.teacher}</Text>
            </ImageBackground>
