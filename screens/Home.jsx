@@ -34,6 +34,17 @@ const Home = ({navigation}) => {
                 <ImageBackground 
                 source={require('../assets/events/afroNationCover.jpg')}
                 style={{width : '100%', height : 450}}>
+                    <View style={{width : '100%', height : 70, flexDirection : "row", justifyContent : "space-between", alignItems : 'center', paddingTop : 15}}>
+                        <View style={{width : 80, height : 80 }}>
+                            <Image
+                                style={{ resizeMode : "contain", flex : 1, width : null, height : null }}
+                                source={require('../assets/logo-w.png')}
+                            />
+                        </View>
+                        <Ionicons 
+                                name='ios-search' size={30} color='#ffffff' 
+                                style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
+                    </View>
                     <LinearGradient
                         colors={['rgba(0, 0, 0, 0)', 'white']}
                         style={{
@@ -43,21 +54,18 @@ const Home = ({navigation}) => {
                         bottom: 0,
                             }}
                     />  
-                    <View style={{alignItems : "center", marginTop : 300}}>
+                    <View style={{alignItems : "center", marginTop : 220}}>
                         <Image 
                             source={require('../assets/events/afroNationLogo.png')}
                             style={{width : 100, height : 100}}
-
                         />
                         <View style={{flexDirection : "row", justifyContent : "space-around", width : '100%', marginTop : -20}}>
                             <View style={{alignItems : "center", flex : 1}}>
                                 <Ionicons name='ios-information-circle' size={30} color='black'/>
                                 <Text>Info</Text>
                             </View>
-                            <View style={{alignItems : "center", flex : 1}}>
-                                <TouchableOpacity>
-                                <Ionicons name={isAdd ? 'ios-checkmark' : 'ios-add'} size={30} color='black' onPress={() => setIsAdd(!isAdd)}/>
-                                </TouchableOpacity>
+                            <View style={{alignItems : "center", flex : 1}}>                            
+                                <Ionicons name={isAdd ? 'ios-checkmark' : 'ios-add'} size={30} color='black' onPress={() => setIsAdd(!isAdd)}/>                              
                                 <Text>{isAdd ? 'Retirer' : 'Ajouter'}</Text>
                             </View>
                         </View>

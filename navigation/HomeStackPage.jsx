@@ -30,23 +30,6 @@ const HomeStackPage = ({ navigation }) => {
         options={{
           headerTitle : false,
           headerTransparent : true,
-          // headerStyle : {
-          //   backgroundColor : '#72CCEC',
-          // },
-          headerLeft : () => (
-            <View style={{width : 80, height : 80, marginLeft : 20, marginTop :35,}}>
-              <Image
-                style={{ resizeMode : "contain", flex : 1, width : null, height : null }}
-                source={require('../assets/logo-w.png')}
-            />
-            </View>
-            
-          ),
-          headerRight : () => (
-            <Ionicons 
-            name='ios-search' size={25} color='#ffffff' 
-            style={{marginRight : 20, padding : 10}} onPress={() => navigation.navigate('Search')}/>
-          ) 
         }}/>
 
       <HomeStack.Screen name="Details" component={Details} options={{
