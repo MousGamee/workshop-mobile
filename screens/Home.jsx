@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { 
     View,
      Text,
@@ -11,7 +11,7 @@ import {
      ImageBackground
      } 
 from 'react-native'
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SlideItem, SlideItem2, TeacherPic } from '../components/Category'
 import { ClassContext } from '../context/ClassContext';
 import { AuthContext } from '../context/AuthContext'
@@ -23,6 +23,7 @@ const Home = ({navigation}) => {
 
     const { cours, img, teacher } = useContext(ClassContext)
     const { users } = useContext(AuthContext)
+    const [isAdd, setIsAdd] = useState(false)
 
     return (
         <View style={{flex : 1, backgroundColor : '#fff'}}>
@@ -48,6 +49,18 @@ const Home = ({navigation}) => {
                             style={{width : 100, height : 100}}
 
                         />
+                        <View style={{flexDirection : "row", justifyContent : "space-around", width : '100%', marginTop : -20}}>
+                            <View style={{alignItems : "center", flex : 1}}>
+                                <Ionicons name='ios-information-circle' size={30} color='black'/>
+                                <Text>Info</Text>
+                            </View>
+                            <View style={{alignItems : "center", flex : 1}}>
+                                <TouchableOpacity>
+                                <Ionicons name={isAdd ? 'ios-checkmark' : 'ios-add'} size={30} color='black' onPress={() => setIsAdd(!isAdd)}/>
+                                </TouchableOpacity>
+                                <Text>{isAdd ? 'Retirer' : 'Ajouter'}</Text>
+                            </View>
+                        </View>
                     </View>
                 </ImageBackground>
                 <View style={{paddingHorizontal : 15}}>

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { ClassContext } from '../context/ClassContext';
 import TopTabNavigation from '../navigation/TopTabNavigation';
-const category = ["Afro", "Hip-hop", "House", "Breack"]
+
 const Search = () => {
     const { isSearch } = useContext(ClassContext)
     return ( 
