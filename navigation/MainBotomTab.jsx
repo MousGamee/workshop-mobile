@@ -14,7 +14,7 @@ const MainBotomTab = () => {
             tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === 'Favoris') {
-                iconName = focused ? 'ios-heart' : 'ios-heart';
+                iconName = focused ? 'ios-list' : 'ios-list';
               } else if (route.name === 'Profil'){
                 iconName = focused ? 'ios-person' : 'ios-person';
               }

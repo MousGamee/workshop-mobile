@@ -1,20 +1,26 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import Card from '../components/Card';
-import { ClassContext } from '../context/ClassContext';
+import React from 'react';
+import MapView from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 const Favoris = () => {
 
     return (
-        <View style={{flex : 1, justifyContent : "center", alignItems : 'center'}}>
-            <ScrollView style={{marginTop : 20 }}>
-               
-            </ScrollView>    
-        </View>
+    <View style={styles.container}>
+        <MapView style={styles.mapStyle} />
+    </View>
     )
 }
 export default Favoris
 
 const styles = StyleSheet.create({
-
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      mapStyle: {
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+      },
 })

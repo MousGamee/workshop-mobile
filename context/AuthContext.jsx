@@ -4,7 +4,7 @@ import { user } from '../data'
 export const AuthContext = createContext()
 
 const AuthContextProvider = props => {
-    const [islogin, setIsLogin] = useState(false)
+    const [islogin, setIsLogin] = useState(true)
     const [users, setUsers] = useState(user)
 
     const signIn = (usr, mdp) => {  

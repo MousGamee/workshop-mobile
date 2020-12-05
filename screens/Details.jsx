@@ -14,6 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { SlideItem2 } from '../components/Category'
 import * as Animatable from 'react-native-animatable'
 import { ClassContext } from '../context/ClassContext';
+import MapView from 'react-native-maps';
 
 const Details = ({navigation, route}) => {
 
@@ -72,10 +73,18 @@ const Details = ({navigation, route}) => {
                    <Text>{item.description}</Text>
                </View>
                <View style={{width : '100%', height : 200, marginTop : 20}}>
-                 <Image 
+                 {/* <Image 
                  source={require('../assets/googlemap.png')}
                  style={{width : null, height : null, resizeMode : 'cover', flex : 1}}
-                   /> 
+                   />  */}
+                    <MapView 
+                   region={{ 
+                       latitude : 48.859268,
+                       longitude : 2.347060,
+                       latitudeDelta : 0.2000,
+                       longitudeDelta : 0.1000
+                   }}  style={{flex : 1}}/>
+    
                </View>
                 <View style={{ marginTop : 30}}>
                             <Text style={{color : '#7E8081',fontSize : 20,marginBottom : 10,}}>Recommandé pour vous</Text>
